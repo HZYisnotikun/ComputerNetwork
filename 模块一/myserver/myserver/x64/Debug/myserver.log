@@ -1,0 +1,4 @@
+﻿  myServer.cpp
+D:\计网实验\模块一\myserver\myserver\myServer.cpp(161,6): warning C4326: “main”的返回类型应为“int”而非“void”
+D:\计网实验\模块一\myserver\myserver\myServer.cpp(360,50): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+  myserver.vcxproj -> D:\计网实验\模块一\myserver\x64\Debug\myserver.exe

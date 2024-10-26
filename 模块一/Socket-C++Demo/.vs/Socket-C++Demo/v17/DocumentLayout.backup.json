@@ -1,0 +1,79 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E00\\Socket-C\u002B\u002BDemo\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E00\\Socket-C\u002B\u002BDemo\\C\u002B\u002BDemo\\VerySimpleSocketExample\\VerySimpleServer\\VerySimpleServer.vcproj.DESKTOP-P6TE74L.crackryan.user||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:C\u002B\u002BDemo\\VerySimpleSocketExample\\VerySimpleServer\\VerySimpleServer.vcproj.DESKTOP-P6TE74L.crackryan.user||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E00\\Socket-C\u002B\u002BDemo\\C\u002B\u002BDemo\\VerySimpleSocketExample\\VerySimpleServer\\Server.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:C\u002B\u002BDemo\\VerySimpleSocketExample\\VerySimpleServer\\Server.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E00\\Socket-C\u002B\u002BDemo\\C\u002B\u002BDemo\\VerySimpleSocketExample\\VerySimpleClient\\Client.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:C\u002B\u002BDemo\\VerySimpleSocketExample\\VerySimpleClient\\Client.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "VerySimpleServer.vcproj.DESKTOP-P6TE74L.crackryan.user",
+              "DocumentMoniker": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E00\\Socket-C\u002B\u002BDemo\\C\u002B\u002BDemo\\VerySimpleSocketExample\\VerySimpleServer\\VerySimpleServer.vcproj.DESKTOP-P6TE74L.crackryan.user",
+              "RelativeDocumentMoniker": "C\u002B\u002BDemo\\VerySimpleSocketExample\\VerySimpleServer\\VerySimpleServer.vcproj.DESKTOP-P6TE74L.crackryan.user",
+              "ToolTip": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E00\\Socket-C\u002B\u002BDemo\\C\u002B\u002BDemo\\VerySimpleSocketExample\\VerySimpleServer\\VerySimpleServer.vcproj.DESKTOP-P6TE74L.crackryan.user",
+              "RelativeToolTip": "C\u002B\u002BDemo\\VerySimpleSocketExample\\VerySimpleServer\\VerySimpleServer.vcproj.DESKTOP-P6TE74L.crackryan.user",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003464|",
+              "WhenOpened": "2024-09-24T09:11:32.531Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Server.cpp",
+              "DocumentMoniker": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E00\\Socket-C\u002B\u002BDemo\\C\u002B\u002BDemo\\VerySimpleSocketExample\\VerySimpleServer\\Server.cpp",
+              "RelativeDocumentMoniker": "C\u002B\u002BDemo\\VerySimpleSocketExample\\VerySimpleServer\\Server.cpp",
+              "ToolTip": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E00\\Socket-C\u002B\u002BDemo\\C\u002B\u002BDemo\\VerySimpleSocketExample\\VerySimpleServer\\Server.cpp",
+              "RelativeToolTip": "C\u002B\u002BDemo\\VerySimpleSocketExample\\VerySimpleServer\\Server.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-09-24T09:10:42.793Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Client.cpp",
+              "DocumentMoniker": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E00\\Socket-C\u002B\u002BDemo\\C\u002B\u002BDemo\\VerySimpleSocketExample\\VerySimpleClient\\Client.cpp",
+              "RelativeDocumentMoniker": "C\u002B\u002BDemo\\VerySimpleSocketExample\\VerySimpleClient\\Client.cpp",
+              "ToolTip": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E00\\Socket-C\u002B\u002BDemo\\C\u002B\u002BDemo\\VerySimpleSocketExample\\VerySimpleClient\\Client.cpp",
+              "RelativeToolTip": "C\u002B\u002BDemo\\VerySimpleSocketExample\\VerySimpleClient\\Client.cpp",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACMAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-09-24T07:40:23.634Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
