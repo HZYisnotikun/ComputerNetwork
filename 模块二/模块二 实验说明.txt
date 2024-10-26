@@ -2,4 +2,4 @@
 2.本次实验提供了三个版本：
 （1）Windows VS2017（在VS2019下应该没问题）
 （2）Window下用Gcc编译的版本，上一届很多学生在Windows下都用的是Gcc编译器，结果不得不用VS
-（3）Linux下用Gcc编译的版本
+（3）Linux下用Gcc编译的版本，
