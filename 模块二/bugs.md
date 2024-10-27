@@ -31,3 +31,22 @@
 		}
 ```
 
+
+
+**bugs 2 in SR**
+
+![image-20241027172500657](C:/Users/JOHN/AppData/Roaming/Typora/typora-user-images/image-20241027172500657.png)
+
+程序在随机地方终止 output.txt中无内容。
+
+原因：
+
+```cpp
+//SRRdtReceiver.cpp		
+		int idx = (packet.seqnum - rcvBase >= 0) ? (packet.seqnum - rcvBase) : (packet.seqnum + 8 - rcvBase);;  //here!!!此处数组越界 由于是模八 此前的做法idx = packet.seqnum-rcvBase会导致idx为负
+		this->win[idx] = packet;        //按序存入窗口
+		this->is_acked[idx] = true;
+		this->PktInWin++;
+		cout << "packet amount in rcv window: " << PktInWin << endl;
+```
+

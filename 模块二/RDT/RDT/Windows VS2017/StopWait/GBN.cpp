@@ -19,8 +19,8 @@ int main(int argc, char* argv[])
 	pns->init();
 	pns->setRtdSender(ps);
 	pns->setRtdReceiver(pr);
-	pns->setInputFile("D:\\计网实验\\模块二\\模块二 RDT代码（学生用）\\发布给学生的RDT代码\\Windows VS2017\\input.txt");
-	pns->setOutputFile("D:\\计网实验\\模块二\\模块二 RDT代码（学生用）\\发布给学生的RDT代码\\Windows VS2017\\output.txt");
+	pns->setInputFile("D:\\计网实验\\模块二\\RDT\\RDT\\Windows VS2017\\input.txt");
+	pns->setOutputFile("D:\\计网实验\\模块二\\RDT\\RDT\\Windows VS2017\\output.txt");
 	pns->start();
 		
 	delete ps;

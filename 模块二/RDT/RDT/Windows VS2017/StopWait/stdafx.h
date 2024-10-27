@@ -11,7 +11,7 @@
 #include <tchar.h>
 
 // TODO: 在此处引用程序需要的其他头文件
-#pragma comment (lib,"D:\\计网实验\\模块二\\模块二 RDT代码（学生用）\\发布给学生的RDT代码\\Windows VS2017\\netsimlib.lib")
+#pragma comment (lib,"D:\\计网实验\\模块二\\RDT\\RDT\\Windows VS2017\\netsimlib.lib")
 
 #include <iostream>
 using namespace std;
