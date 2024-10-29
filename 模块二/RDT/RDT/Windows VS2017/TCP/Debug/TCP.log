@@ -1,0 +1,5 @@
+﻿  TCP.cpp
+  TCPRdtSender.cpp
+  正在生成代码...
+D:\计网实验\模块二\RDT\RDT\Windows VS2017\TCP\TCPRdtSender.cpp(103,1): warning C4715: “TCPRdtSender::send”: 不是所有的控件路径都返回值
+  TCP.vcxproj -> D:\计网实验\模块二\RDT\RDT\Windows VS2017\StopWait\Debug\TCP.exe

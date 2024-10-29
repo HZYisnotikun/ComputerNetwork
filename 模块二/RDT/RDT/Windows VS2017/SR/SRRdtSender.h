@@ -19,6 +19,7 @@ public:
 	bool getWaitingState();								//返回RdtSender是否处于等待状态，如果发送方正等待确认或者发送窗口已满，返回true
 	int findPacket(int seqnum);
 	bool inWindow(const int seqnum);
+	void printWindow();
 
 	SRRdtSender();
 	~SRRdtSender();

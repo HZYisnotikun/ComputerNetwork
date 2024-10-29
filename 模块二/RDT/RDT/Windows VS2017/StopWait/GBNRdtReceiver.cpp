@@ -32,9 +32,10 @@ void GBNRdtReceiver::receive(const Packet& packet) {
 		pUtils->printPacket("接收方发送确认报文", lastAckPkt);
 
 		this->expectSequenceNumberRcvd++;
+		this->expectSequenceNumberRcvd %= 8;
 	}
 	else {
-		if (packet.acknum != expectSequenceNumberRcvd)//如果乱序
+		if (packet.seqnum != expectSequenceNumberRcvd)//如果乱序
 			pUtils->printPacket("ERROR：接收方未收到正确报文：报文序号错误", packet);
 		else
 			pUtils->printPacket("ERROR：接收方未收到正确报文：检验和错误", packet);

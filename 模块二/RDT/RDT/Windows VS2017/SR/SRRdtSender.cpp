@@ -12,6 +12,17 @@ SRRdtSender::~SRRdtSender() {
 
 }
 
+void SRRdtSender::printWindow() {
+	cout << "window now: " << endl;
+	cout << "------------------------------------" << endl;
+	for (int i = 0; i < PktInWin; i++)
+		if (!is_ack[i])
+			cout << " | " << win[i].seqnum;
+		else cout << " | " << -1;
+	cout << " | " << endl;
+	cout << "------------------------------------" << endl;
+}
+
 int SRRdtSender::findPacket(int Seqnum) {
 	int i = 0;
 	for (; i < 4; i++) {
@@ -59,6 +70,7 @@ bool SRRdtSender::send(const Message &message) {
 		this->waitingState = true;
 		cout << "the window is full!" << endl;
 	}
+	printWindow();
 
 	return true;
 }
@@ -91,6 +103,7 @@ void SRRdtSender::receive(const Packet &ackPkt) {
 			pUtils->printPacket("发送方正确收到确认", ackPkt);
 			pns->stopTimer(SENDER, ackPkt.acknum);		//关闭定时器
 			cout << "stop timer at seqnum " << ackPkt.acknum << endl;
+			printWindow();
 		}
 	}
 	return;
