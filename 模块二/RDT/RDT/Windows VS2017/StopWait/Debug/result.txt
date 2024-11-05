@@ -2,23 +2,53 @@
 ******模拟网络环境******：模拟网络环境启动...
 发送方发送报文: seqnum = 0, acknum = -1, checksum = 29556, AAAAAAAAAAAAAAAAAAAA
 start timer at seqnum 0
+window now: 
+------------------------------------
+ | 0 | 
+------------------------------------
 ******模拟网络环境******：向上递交给应用层数据：AAAAAAAAAAAAAAAAAAAA
 接收方发送确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
-发送方正确收到确认: seqnum = -1, acknum = 0, checksum = 12851, ....................
+计时器超时，下面重发第一个没被确认的包
 stop timer at seqnum 0
-发送方发送报文: seqnum = 1, acknum = -1, checksum = 26985, BBBBBBBBBBBBBBBBBBBB
-start timer at seqnum 1
-发送方发送报文: seqnum = 2, acknum = -1, checksum = 24414, CCCCCCCCCCCCCCCCCCCC
-发送方发送报文: seqnum = 3, acknum = -1, checksum = 21843, DDDDDDDDDDDDDDDDDDDD
-发送方发送报文: seqnum = 4, acknum = -1, checksum = 19272, EEEEEEEEEEEEEEEEEEEE
-the window is full!
-ERROR：接收方未收到正确报文：检验和错误: seqnum = 1, acknum = -1, checksum = 26985, CBBBBBBBBBBBBBBBBBBB
+start timer at seqnum 0
+重发报文: seqnum = 0, acknum = -1, checksum = 29556, AAAAAAAAAAAAAAAAAAAA
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 0, acknum = -1, checksum = 29556, AAAAAAAAAAAAAAAAAAAA
 接受方重新发送上次的确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
 连续1个冗余ACK
-ERROR：接收方未收到正确报文：报文序号错误: seqnum = 2, acknum = -1, checksum = 24414, CCCCCCCCCCCCCCCCCCCC
+发送方正确收到确认: seqnum = -1, acknum = 0, checksum = 12851, ....................
+stop timer at seqnum 0
+window now: 
+------------------------------------
+ | 
+------------------------------------
+发送方发送报文: seqnum = 1, acknum = -1, checksum = 26985, BBBBBBBBBBBBBBBBBBBB
+start timer at seqnum 1
+window now: 
+------------------------------------
+ | 1 | 
+------------------------------------
+发送方发送报文: seqnum = 2, acknum = -1, checksum = 24414, CCCCCCCCCCCCCCCCCCCC
+window now: 
+------------------------------------
+ | 1 | 2 | 
+------------------------------------
+发送方发送报文: seqnum = 3, acknum = -1, checksum = 21843, DDDDDDDDDDDDDDDDDDDD
+window now: 
+------------------------------------
+ | 1 | 2 | 3 | 
+------------------------------------
+发送方发送报文: seqnum = 4, acknum = -1, checksum = 19272, EEEEEEEEEEEEEEEEEEEE
+the window is full!
+window now: 
+------------------------------------
+ | 1 | 2 | 3 | 4 | 
+------------------------------------
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = -999999, acknum = -1, checksum = 26985, BBBBBBBBBBBBBBBBBBBB
 接受方重新发送上次的确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
 连续2个冗余ACK
-ERROR：接收方未收到正确报文：报文序号错误: seqnum = 4, acknum = -1, checksum = 19272, EEEEEEEEEEEEEEEEEEEE
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 2, acknum = -1, checksum = 24414, CCCCCCCCCCCCCCCCCCCC
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 3, acknum = -1, checksum = 21843, DDDDDDDDDDDDDDDDDDDD
 接受方重新发送上次的确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
 计时器超时，下面重发第一个没被确认的包
 stop timer at seqnum 1
@@ -29,14 +59,28 @@ start timer at seqnum 1
 stop timer at seqnum 1
 start timer at seqnum 1
 重发报文: seqnum = 1, acknum = -1, checksum = 26985, BBBBBBBBBBBBBBBBBBBB
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 4, acknum = -1, checksum = 19272, EEEEEEEEEEEEEEEEEEEE
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
 ******模拟网络环境******：向上递交给应用层数据：BBBBBBBBBBBBBBBBBBBB
 接收方发送确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
+连续1个冗余ACK
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 1, acknum = -1, checksum = 26985, BBBBBBBBBBBBBBBBBBBB
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
 发送方正确收到确认: seqnum = -1, acknum = 1, checksum = 12850, ....................
 stop timer at seqnum 1
 start timer at seqnum 2
-ERROR：接收方未收到正确报文：报文序号错误: seqnum = 1, acknum = -1, checksum = 26985, BBBBBBBBBBBBBBBBBBBB
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
+window now: 
+------------------------------------
+ | 2 | 3 | 4 | 
+------------------------------------
 连续1个冗余ACK
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 2
+start timer at seqnum 2
+重发报文: seqnum = 2, acknum = -1, checksum = 24414, CCCCCCCCCCCCCCCCCCCC
+ERROR：接收方未收到正确报文：检验和错误: seqnum = 2, acknum = -1, checksum = 24414, DCCCCCCCCCCCCCCCCCCC
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
+连续2个冗余ACK
 计时器超时，下面重发第一个没被确认的包
 stop timer at seqnum 2
 start timer at seqnum 2
@@ -46,6 +90,10 @@ start timer at seqnum 2
 发送方正确收到确认: seqnum = -1, acknum = 2, checksum = 12849, ....................
 stop timer at seqnum 2
 start timer at seqnum 3
+window now: 
+------------------------------------
+ | 3 | 4 | 
+------------------------------------
 计时器超时，下面重发第一个没被确认的包
 stop timer at seqnum 3
 start timer at seqnum 3
@@ -55,6 +103,10 @@ start timer at seqnum 3
 发送方正确收到确认: seqnum = -1, acknum = 3, checksum = 12848, ....................
 stop timer at seqnum 3
 start timer at seqnum 4
+window now: 
+------------------------------------
+ | 4 | 
+------------------------------------
 计时器超时，下面重发第一个没被确认的包
 stop timer at seqnum 4
 start timer at seqnum 4
@@ -63,49 +115,65 @@ start timer at seqnum 4
 接收方发送确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
 发送方正确收到确认: seqnum = -1, acknum = 4, checksum = 12847, ....................
 stop timer at seqnum 4
+window now: 
+------------------------------------
+ | 
+------------------------------------
 发送方发送报文: seqnum = 5, acknum = -1, checksum = 16701, FFFFFFFFFFFFFFFFFFFF
 start timer at seqnum 5
+window now: 
+------------------------------------
+ | 5 | 
+------------------------------------
 发送方发送报文: seqnum = 6, acknum = -1, checksum = 14130, GGGGGGGGGGGGGGGGGGGG
+window now: 
+------------------------------------
+ | 5 | 6 | 
+------------------------------------
 发送方发送报文: seqnum = 7, acknum = -1, checksum = 11559, HHHHHHHHHHHHHHHHHHHH
+window now: 
+------------------------------------
+ | 5 | 6 | 7 | 
+------------------------------------
 发送方发送报文: seqnum = 0, acknum = -1, checksum = 8996, IIIIIIIIIIIIIIIIIIII
 the window is full!
+window now: 
+------------------------------------
+ | 5 | 6 | 7 | 0 | 
+------------------------------------
 ******模拟网络环境******：向上递交给应用层数据：FFFFFFFFFFFFFFFFFFFF
 接收方发送确认报文: seqnum = -1, acknum = 5, checksum = 12846, ....................
-ERROR：接收方未收到正确报文：检验和错误: seqnum = 6, acknum = -1, checksum = 14130, HGGGGGGGGGGGGGGGGGGG
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 5, checksum = 12846, ....................
 发送方正确收到确认: seqnum = -1, acknum = 5, checksum = 12846, ....................
 stop timer at seqnum 5
 start timer at seqnum 6
-ERROR：接收方未收到正确报文：报文序号错误: seqnum = 7, acknum = -1, checksum = 11559, HHHHHHHHHHHHHHHHHHHH
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 5, checksum = 12846, ....................
-ERROR：接收方未收到正确报文：报文序号错误: seqnum = 0, acknum = -1, checksum = 8996, IIIIIIIIIIIIIIIIIIII
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 5, checksum = 12846, ....................
-连续1个冗余ACK
-连续2个冗余ACK
-计时器超时，下面重发第一个没被确认的包
-stop timer at seqnum 6
-start timer at seqnum 6
-重发报文: seqnum = 6, acknum = -1, checksum = 14130, GGGGGGGGGGGGGGGGGGGG
+window now: 
+------------------------------------
+ | 6 | 7 | 0 | 
+------------------------------------
 ******模拟网络环境******：向上递交给应用层数据：GGGGGGGGGGGGGGGGGGGG
 接收方发送确认报文: seqnum = -1, acknum = 6, checksum = 12845, ....................
-计时器超时，下面重发第一个没被确认的包
-stop timer at seqnum 6
-start timer at seqnum 6
-重发报文: seqnum = 6, acknum = -1, checksum = 14130, GGGGGGGGGGGGGGGGGGGG
-ERROR：接收方未收到正确报文：报文序号错误: seqnum = 6, acknum = -1, checksum = 14130, GGGGGGGGGGGGGGGGGGGG
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 6, checksum = 12845, ....................
 发送方正确收到确认: seqnum = -1, acknum = 6, checksum = 12845, ....................
 stop timer at seqnum 6
 start timer at seqnum 7
+window now: 
+------------------------------------
+ | 7 | 0 | 
+------------------------------------
+******模拟网络环境******：向上递交给应用层数据：HHHHHHHHHHHHHHHHHHHH
+接收方发送确认报文: seqnum = -1, acknum = 7, checksum = 12844, ....................
 计时器超时，下面重发第一个没被确认的包
 stop timer at seqnum 7
 start timer at seqnum 7
 重发报文: seqnum = 7, acknum = -1, checksum = 11559, HHHHHHHHHHHHHHHHHHHH
-******模拟网络环境******：向上递交给应用层数据：HHHHHHHHHHHHHHHHHHHH
-接收方发送确认报文: seqnum = -1, acknum = 7, checksum = 12844, ....................
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 7, acknum = -1, checksum = 11559, HHHHHHHHHHHHHHHHHHHH
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 7, checksum = 12844, ....................
 发送方正确收到确认: seqnum = -1, acknum = 7, checksum = 12844, ....................
 stop timer at seqnum 7
 start timer at seqnum 0
+window now: 
+------------------------------------
+ | 0 | 
+------------------------------------
 计时器超时，下面重发第一个没被确认的包
 stop timer at seqnum 0
 start timer at seqnum 0
@@ -114,27 +182,73 @@ start timer at seqnum 0
 接收方发送确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
 发送方正确收到确认: seqnum = -1, acknum = 0, checksum = 12851, ....................
 stop timer at seqnum 0
+window now: 
+------------------------------------
+ | 
+------------------------------------
 发送方发送报文: seqnum = 1, acknum = -1, checksum = 6425, JJJJJJJJJJJJJJJJJJJJ
 start timer at seqnum 1
+window now: 
+------------------------------------
+ | 1 | 
+------------------------------------
 发送方发送报文: seqnum = 2, acknum = -1, checksum = 3854, KKKKKKKKKKKKKKKKKKKK
+window now: 
+------------------------------------
+ | 1 | 2 | 
+------------------------------------
 发送方发送报文: seqnum = 3, acknum = -1, checksum = 1283, LLLLLLLLLLLLLLLLLLLL
+window now: 
+------------------------------------
+ | 1 | 2 | 3 | 
+------------------------------------
 发送方发送报文: seqnum = 4, acknum = -1, checksum = 64247, MMMMMMMMMMMMMMMMMMMM
 the window is full!
+window now: 
+------------------------------------
+ | 1 | 2 | 3 | 4 | 
+------------------------------------
 ******模拟网络环境******：向上递交给应用层数据：JJJJJJJJJJJJJJJJJJJJ
 接收方发送确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
 发送方正确收到确认: seqnum = -1, acknum = 1, checksum = 12850, ....................
 stop timer at seqnum 1
 start timer at seqnum 2
+window now: 
+------------------------------------
+ | 2 | 3 | 4 | 
+------------------------------------
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 3, acknum = -1, checksum = 1283, LLLLLLLLLLLLLLLLLLLL
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 4, acknum = -999999, checksum = 64247, MMMMMMMMMMMMMMMMMMMM
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
+连续1个冗余ACK
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 2
+start timer at seqnum 2
+重发报文: seqnum = 2, acknum = -1, checksum = 3854, KKKKKKKKKKKKKKKKKKKK
+连续2个冗余ACK
 ******模拟网络环境******：向上递交给应用层数据：KKKKKKKKKKKKKKKKKKKK
 接收方发送确认报文: seqnum = -1, acknum = 2, checksum = 12849, ....................
 发送方正确收到确认: seqnum = -1, acknum = 2, checksum = 12849, ....................
 stop timer at seqnum 2
 start timer at seqnum 3
+window now: 
+------------------------------------
+ | 3 | 4 | 
+------------------------------------
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 3
+start timer at seqnum 3
+重发报文: seqnum = 3, acknum = -1, checksum = 1283, LLLLLLLLLLLLLLLLLLLL
 ******模拟网络环境******：向上递交给应用层数据：LLLLLLLLLLLLLLLLLLLL
 接收方发送确认报文: seqnum = -1, acknum = 3, checksum = 12848, ....................
 发送方正确收到确认: seqnum = -1, acknum = 3, checksum = 12848, ....................
 stop timer at seqnum 3
 start timer at seqnum 4
+window now: 
+------------------------------------
+ | 4 | 
+------------------------------------
 计时器超时，下面重发第一个没被确认的包
 stop timer at seqnum 4
 start timer at seqnum 4
@@ -143,132 +257,460 @@ start timer at seqnum 4
 接收方发送确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
 发送方正确收到确认: seqnum = -1, acknum = 4, checksum = 12847, ....................
 stop timer at seqnum 4
+window now: 
+------------------------------------
+ | 
+------------------------------------
 发送方发送报文: seqnum = 5, acknum = -1, checksum = 61676, NNNNNNNNNNNNNNNNNNNN
 start timer at seqnum 5
+window now: 
+------------------------------------
+ | 5 | 
+------------------------------------
 发送方发送报文: seqnum = 6, acknum = -1, checksum = 59105, OOOOOOOOOOOOOOOOOOOO
+window now: 
+------------------------------------
+ | 5 | 6 | 
+------------------------------------
 发送方发送报文: seqnum = 7, acknum = -1, checksum = 56534, PPPPPPPPPPPPPPPPPPPP
+window now: 
+------------------------------------
+ | 5 | 6 | 7 | 
+------------------------------------
 发送方发送报文: seqnum = 0, acknum = -1, checksum = 53971, QQQQQQQQQQQQQQQQQQQQ
 the window is full!
+window now: 
+------------------------------------
+ | 5 | 6 | 7 | 0 | 
+------------------------------------
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 6, acknum = -1, checksum = 59105, OOOOOOOOOOOOOOOOOOOO
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 7, acknum = -1, checksum = 56534, PPPPPPPPPPPPPPPPPPPP
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
+连续1个冗余ACK
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 5
+start timer at seqnum 5
+重发报文: seqnum = 5, acknum = -1, checksum = 61676, NNNNNNNNNNNNNNNNNNNN
+连续2个冗余ACK
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 0, acknum = -1, checksum = 53971, QQQQQQQQQQQQQQQQQQQQ
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
+连续3个冗余ACK
+连续三个冗余ACK： 4 触发快速重传
+stop timer at seqnum 5
+start timer at seqnum 5
+重发报文: seqnum = 5, acknum = -1, checksum = 61676, NNNNNNNNNNNNNNNNNNNN
 ******模拟网络环境******：向上递交给应用层数据：NNNNNNNNNNNNNNNNNNNN
 接收方发送确认报文: seqnum = -1, acknum = 5, checksum = 12846, ....................
 发送方正确收到确认: seqnum = -1, acknum = 5, checksum = 12846, ....................
 stop timer at seqnum 5
 start timer at seqnum 6
+window now: 
+------------------------------------
+ | 6 | 7 | 0 | 
+------------------------------------
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 6
+start timer at seqnum 6
+重发报文: seqnum = 6, acknum = -1, checksum = 59105, OOOOOOOOOOOOOOOOOOOO
+ERROR：接收方未收到正确报文：检验和错误: seqnum = 6, acknum = -1, checksum = 59105, POOOOOOOOOOOOOOOOOOO
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 5, checksum = 12846, ....................
+连续1个冗余ACK
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 6
+start timer at seqnum 6
+重发报文: seqnum = 6, acknum = -1, checksum = 59105, OOOOOOOOOOOOOOOOOOOO
+ERROR：接收方未收到正确报文：检验和错误: seqnum = 6, acknum = -1, checksum = 59105, POOOOOOOOOOOOOOOOOOO
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 5, checksum = 12846, ....................
+连续2个冗余ACK
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 6
+start timer at seqnum 6
+重发报文: seqnum = 6, acknum = -1, checksum = 59105, OOOOOOOOOOOOOOOOOOOO
 ******模拟网络环境******：向上递交给应用层数据：OOOOOOOOOOOOOOOOOOOO
 接收方发送确认报文: seqnum = -1, acknum = 6, checksum = 12845, ....................
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 6
+start timer at seqnum 6
+重发报文: seqnum = 6, acknum = -1, checksum = 59105, OOOOOOOOOOOOOOOOOOOO
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 6
+start timer at seqnum 6
+重发报文: seqnum = 6, acknum = -1, checksum = 59105, OOOOOOOOOOOOOOOOOOOO
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 6
+start timer at seqnum 6
+重发报文: seqnum = 6, acknum = -1, checksum = 59105, OOOOOOOOOOOOOOOOOOOO
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 6, acknum = -1, checksum = 59105, POOOOOOOOOOOOOOOOOOO
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 6, checksum = 12845, ....................
+发送方正确收到确认: seqnum = -1, acknum = 6, checksum = 12845, ....................
+stop timer at seqnum 6
+start timer at seqnum 7
+window now: 
+------------------------------------
+ | 7 | 0 | 
+------------------------------------
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 7
+start timer at seqnum 7
+重发报文: seqnum = 7, acknum = -1, checksum = 56534, PPPPPPPPPPPPPPPPPPPP
+ERROR：接收方未收到正确报文：检验和错误: seqnum = 7, acknum = -1, checksum = 56534, QPPPPPPPPPPPPPPPPPPP
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 6, checksum = 12845, ....................
+连续1个冗余ACK
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 7
+start timer at seqnum 7
+重发报文: seqnum = 7, acknum = -1, checksum = 56534, PPPPPPPPPPPPPPPPPPPP
 ******模拟网络环境******：向上递交给应用层数据：PPPPPPPPPPPPPPPPPPPP
 接收方发送确认报文: seqnum = -1, acknum = 7, checksum = 12844, ....................
 发送方正确收到确认: seqnum = -1, acknum = 7, checksum = 12844, ....................
-stop timer at seqnum 6
+stop timer at seqnum 7
 start timer at seqnum 0
+window now: 
+------------------------------------
+ | 0 | 
+------------------------------------
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 0
+start timer at seqnum 0
+重发报文: seqnum = 0, acknum = -1, checksum = 53971, QQQQQQQQQQQQQQQQQQQQ
 ******模拟网络环境******：向上递交给应用层数据：QQQQQQQQQQQQQQQQQQQQ
 接收方发送确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
 发送方正确收到确认: seqnum = -1, acknum = 0, checksum = 12851, ....................
 stop timer at seqnum 0
+window now: 
+------------------------------------
+ | 
+------------------------------------
 发送方发送报文: seqnum = 1, acknum = -1, checksum = 51400, RRRRRRRRRRRRRRRRRRRR
 start timer at seqnum 1
+window now: 
+------------------------------------
+ | 1 | 
+------------------------------------
 发送方发送报文: seqnum = 2, acknum = -1, checksum = 48829, SSSSSSSSSSSSSSSSSSSS
+window now: 
+------------------------------------
+ | 1 | 2 | 
+------------------------------------
 发送方发送报文: seqnum = 3, acknum = -1, checksum = 46258, TTTTTTTTTTTTTTTTTTTT
+window now: 
+------------------------------------
+ | 1 | 2 | 3 | 
+------------------------------------
 发送方发送报文: seqnum = 4, acknum = -1, checksum = 43687, UUUUUUUUUUUUUUUUUUUU
 the window is full!
-******模拟网络环境******：向上递交给应用层数据：RRRRRRRRRRRRRRRRRRRR
-接收方发送确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
-******模拟网络环境******：向上递交给应用层数据：SSSSSSSSSSSSSSSSSSSS
-接收方发送确认报文: seqnum = -1, acknum = 2, checksum = 12849, ....................
+window now: 
+------------------------------------
+ | 1 | 2 | 3 | 4 | 
+------------------------------------
+ERROR：接收方未收到正确报文：检验和错误: seqnum = 1, acknum = -1, checksum = 51400, SRRRRRRRRRRRRRRRRRRR
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
+连续1个冗余ACK
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 2, acknum = -1, checksum = 48829, SSSSSSSSSSSSSSSSSSSS
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
+连续2个冗余ACK
 计时器超时，下面重发第一个没被确认的包
 stop timer at seqnum 1
 start timer at seqnum 1
 重发报文: seqnum = 1, acknum = -1, checksum = 51400, RRRRRRRRRRRRRRRRRRRR
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 3, acknum = -1, checksum = 46258, TTTTTTTTTTTTTTTTTTTT
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
+******模拟网络环境******：向上递交给应用层数据：RRRRRRRRRRRRRRRRRRRR
+接收方发送确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
+连续3个冗余ACK
+连续三个冗余ACK： 0 触发快速重传
+stop timer at seqnum 1
+start timer at seqnum 1
+重发报文: seqnum = 1, acknum = -1, checksum = 51400, RRRRRRRRRRRRRRRRRRRR
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 1, acknum = -1, checksum = 51400, RRRRRRRRRRRRRRRRRRRR
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
+发送方正确收到确认: seqnum = -1, acknum = 1, checksum = 12850, ....................
+stop timer at seqnum 1
+start timer at seqnum 2
+window now: 
+------------------------------------
+ | 2 | 3 | 4 | 
+------------------------------------
+连续1个冗余ACK
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 2
+start timer at seqnum 2
+重发报文: seqnum = 2, acknum = -1, checksum = 48829, SSSSSSSSSSSSSSSSSSSS
+******模拟网络环境******：向上递交给应用层数据：SSSSSSSSSSSSSSSSSSSS
+接收方发送确认报文: seqnum = -1, acknum = 2, checksum = 12849, ....................
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 2
+start timer at seqnum 2
+重发报文: seqnum = 2, acknum = -1, checksum = 48829, SSSSSSSSSSSSSSSSSSSS
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 2, acknum = -1, checksum = 48829, SSSSSSSSSSSSSSSSSSSS
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 2, checksum = 12849, ....................
+连续1个冗余ACK
+发送方正确收到确认: seqnum = -1, acknum = 2, checksum = 12849, ....................
+stop timer at seqnum 2
+start timer at seqnum 3
+window now: 
+------------------------------------
+ | 3 | 4 | 
+------------------------------------
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 3
+start timer at seqnum 3
+重发报文: seqnum = 3, acknum = -1, checksum = 46258, TTTTTTTTTTTTTTTTTTTT
 ******模拟网络环境******：向上递交给应用层数据：TTTTTTTTTTTTTTTTTTTT
 接收方发送确认报文: seqnum = -1, acknum = 3, checksum = 12848, ....................
-发送方正确收到确认: seqnum = -1, acknum = 2, checksum = 12849, ....................
-stop timer at seqnum 1
-start timer at seqnum 3
-******模拟网络环境******：向上递交给应用层数据：UUUUUUUUUUUUUUUUUUUU
-接收方发送确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
 发送方正确收到确认: seqnum = -1, acknum = 3, checksum = 12848, ....................
 stop timer at seqnum 3
 start timer at seqnum 4
+window now: 
+------------------------------------
+ | 4 | 
+------------------------------------
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 4
+start timer at seqnum 4
+重发报文: seqnum = 4, acknum = -1, checksum = 43687, UUUUUUUUUUUUUUUUUUUU
+******模拟网络环境******：向上递交给应用层数据：UUUUUUUUUUUUUUUUUUUU
+接收方发送确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
 发送方正确收到确认: seqnum = -1, acknum = 4, checksum = 12847, ....................
 stop timer at seqnum 4
-ERROR：接收方未收到正确报文：报文序号错误: seqnum = 1, acknum = -1, checksum = 51400, RRRRRRRRRRRRRRRRRRRR
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
-连续1个冗余ACK
+window now: 
+------------------------------------
+ | 
+------------------------------------
 发送方发送报文: seqnum = 5, acknum = -1, checksum = 41116, VVVVVVVVVVVVVVVVVVVV
 start timer at seqnum 5
+window now: 
+------------------------------------
+ | 5 | 
+------------------------------------
 发送方发送报文: seqnum = 6, acknum = -1, checksum = 38545, WWWWWWWWWWWWWWWWWWWW
+window now: 
+------------------------------------
+ | 5 | 6 | 
+------------------------------------
 发送方发送报文: seqnum = 7, acknum = -1, checksum = 35974, XXXXXXXXXXXXXXXXXXXX
+window now: 
+------------------------------------
+ | 5 | 6 | 7 | 
+------------------------------------
 发送方发送报文: seqnum = 0, acknum = -1, checksum = 33411, YYYYYYYYYYYYYYYYYYYY
 the window is full!
+window now: 
+------------------------------------
+ | 5 | 6 | 7 | 0 | 
+------------------------------------
 ******模拟网络环境******：向上递交给应用层数据：VVVVVVVVVVVVVVVVVVVV
 接收方发送确认报文: seqnum = -1, acknum = 5, checksum = 12846, ....................
-******模拟网络环境******：向上递交给应用层数据：WWWWWWWWWWWWWWWWWWWW
-接收方发送确认报文: seqnum = -1, acknum = 6, checksum = 12845, ....................
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 7, acknum = -1, checksum = 35974, XXXXXXXXXXXXXXXXXXXX
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 5, checksum = 12846, ....................
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 0, acknum = -1, checksum = 33411, YYYYYYYYYYYYYYYYYYYY
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 5, checksum = 12846, ....................
+连续1个冗余ACK
 发送方正确收到确认: seqnum = -1, acknum = 5, checksum = 12846, ....................
 stop timer at seqnum 5
 start timer at seqnum 6
-******模拟网络环境******：向上递交给应用层数据：XXXXXXXXXXXXXXXXXXXX
-接收方发送确认报文: seqnum = -1, acknum = 7, checksum = 12844, ....................
+window now: 
+------------------------------------
+ | 6 | 7 | 0 | 
+------------------------------------
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 6
+start timer at seqnum 6
+重发报文: seqnum = 6, acknum = -1, checksum = 38545, WWWWWWWWWWWWWWWWWWWW
+******模拟网络环境******：向上递交给应用层数据：WWWWWWWWWWWWWWWWWWWW
+接收方发送确认报文: seqnum = -1, acknum = 6, checksum = 12845, ....................
 发送方正确收到确认: seqnum = -1, acknum = 6, checksum = 12845, ....................
 stop timer at seqnum 6
 start timer at seqnum 7
-******模拟网络环境******：向上递交给应用层数据：YYYYYYYYYYYYYYYYYYYY
-接收方发送确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
+window now: 
+------------------------------------
+ | 7 | 0 | 
+------------------------------------
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 7
+start timer at seqnum 7
+重发报文: seqnum = 7, acknum = -1, checksum = 35974, XXXXXXXXXXXXXXXXXXXX
+******模拟网络环境******：向上递交给应用层数据：XXXXXXXXXXXXXXXXXXXX
+接收方发送确认报文: seqnum = -1, acknum = 7, checksum = 12844, ....................
 发送方正确收到确认: seqnum = -1, acknum = 7, checksum = 12844, ....................
 stop timer at seqnum 7
 start timer at seqnum 0
+window now: 
+------------------------------------
+ | 0 | 
+------------------------------------
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 0
+start timer at seqnum 0
+重发报文: seqnum = 0, acknum = -1, checksum = 33411, YYYYYYYYYYYYYYYYYYYY
+******模拟网络环境******：向上递交给应用层数据：YYYYYYYYYYYYYYYYYYYY
+接收方发送确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
 发送方正确收到确认: seqnum = -1, acknum = 0, checksum = 12851, ....................
 stop timer at seqnum 0
+window now: 
+------------------------------------
+ | 
+------------------------------------
 发送方发送报文: seqnum = 1, acknum = -1, checksum = 30840, ZZZZZZZZZZZZZZZZZZZZ
 start timer at seqnum 1
+window now: 
+------------------------------------
+ | 1 | 
+------------------------------------
 发送方发送报文: seqnum = 2, acknum = -1, checksum = 29554, AAAAAAAAAAAAAAAAAAAA
+window now: 
+------------------------------------
+ | 1 | 2 | 
+------------------------------------
 发送方发送报文: seqnum = 3, acknum = -1, checksum = 26983, BBBBBBBBBBBBBBBBBBBB
+window now: 
+------------------------------------
+ | 1 | 2 | 3 | 
+------------------------------------
 发送方发送报文: seqnum = 4, acknum = -1, checksum = 24412, CCCCCCCCCCCCCCCCCCCC
 the window is full!
+window now: 
+------------------------------------
+ | 1 | 2 | 3 | 4 | 
+------------------------------------
 ******模拟网络环境******：向上递交给应用层数据：ZZZZZZZZZZZZZZZZZZZZ
 接收方发送确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
 ******模拟网络环境******：向上递交给应用层数据：AAAAAAAAAAAAAAAAAAAA
 接收方发送确认报文: seqnum = -1, acknum = 2, checksum = 12849, ....................
-计时器超时，下面重发第一个没被确认的包
+发送方正确收到确认: seqnum = -1, acknum = 1, checksum = 12850, ....................
 stop timer at seqnum 1
-start timer at seqnum 1
-重发报文: seqnum = 1, acknum = -1, checksum = 30840, ZZZZZZZZZZZZZZZZZZZZ
+start timer at seqnum 2
+window now: 
+------------------------------------
+ | 2 | 3 | 4 | 
+------------------------------------
 ******模拟网络环境******：向上递交给应用层数据：BBBBBBBBBBBBBBBBBBBB
 接收方发送确认报文: seqnum = -1, acknum = 3, checksum = 12848, ....................
-发送方正确收到确认: seqnum = -1, acknum = 3, checksum = 12848, ....................
-stop timer at seqnum 1
-start timer at seqnum 4
 ******模拟网络环境******：向上递交给应用层数据：CCCCCCCCCCCCCCCCCCCC
 接收方发送确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
-ERROR：接收方未收到正确报文：报文序号错误: seqnum = 1, acknum = -1, checksum = 30840, ZZZZZZZZZZZZZZZZZZZZ
+发送方正确收到确认: seqnum = -1, acknum = 2, checksum = 12849, ....................
+stop timer at seqnum 2
+start timer at seqnum 3
+window now: 
+------------------------------------
+ | 3 | 4 | 
+------------------------------------
+发送方正确收到确认: seqnum = -1, acknum = 3, checksum = 12848, ....................
+stop timer at seqnum 3
+start timer at seqnum 4
+window now: 
+------------------------------------
+ | 4 | 
+------------------------------------
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 4
+start timer at seqnum 4
+重发报文: seqnum = 4, acknum = -1, checksum = 24412, CCCCCCCCCCCCCCCCCCCC
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 4, acknum = -1, checksum = 24412, CCCCCCCCCCCCCCCCCCCC
 接受方重新发送上次的确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
+连续1个冗余ACK
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 4
+start timer at seqnum 4
+重发报文: seqnum = 4, acknum = -1, checksum = 24412, CCCCCCCCCCCCCCCCCCCC
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 4, acknum = -1, checksum = 24412, CCCCCCCCCCCCCCCCCCCC
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
+连续2个冗余ACK
 发送方正确收到确认: seqnum = -1, acknum = 4, checksum = 12847, ....................
 stop timer at seqnum 4
-连续1个冗余ACK
+window now: 
+------------------------------------
+ | 
+------------------------------------
 发送方发送报文: seqnum = 5, acknum = -1, checksum = 21841, DDDDDDDDDDDDDDDDDDDD
 start timer at seqnum 5
+window now: 
+------------------------------------
+ | 5 | 
+------------------------------------
 发送方发送报文: seqnum = 6, acknum = -1, checksum = 19270, EEEEEEEEEEEEEEEEEEEE
+window now: 
+------------------------------------
+ | 5 | 6 | 
+------------------------------------
 发送方发送报文: seqnum = 7, acknum = -1, checksum = 16699, FFFFFFFFFFFFFFFFFFFF
+window now: 
+------------------------------------
+ | 5 | 6 | 7 | 
+------------------------------------
 发送方发送报文: seqnum = 0, acknum = -1, checksum = 14136, GGGGGGGGGGGGGGGGGGGG
 the window is full!
+window now: 
+------------------------------------
+ | 5 | 6 | 7 | 0 | 
+------------------------------------
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 6, acknum = -1, checksum = 19270, EEEEEEEEEEEEEEEEEEEE
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 7, acknum = -1, checksum = 16699, FFFFFFFFFFFFFFFFFFFF
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
+连续3个冗余ACK
+连续三个冗余ACK： 4 触发快速重传
+stop timer at seqnum 5
+start timer at seqnum 5
+重发报文: seqnum = 5, acknum = -1, checksum = 21841, DDDDDDDDDDDDDDDDDDDD
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 0, acknum = -1, checksum = 14136, GGGGGGGGGGGGGGGGGGGG
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
 ******模拟网络环境******：向上递交给应用层数据：DDDDDDDDDDDDDDDDDDDD
 接收方发送确认报文: seqnum = -1, acknum = 5, checksum = 12846, ....................
+连续1个冗余ACK
 发送方正确收到确认: seqnum = -1, acknum = 5, checksum = 12846, ....................
 stop timer at seqnum 5
 start timer at seqnum 6
+window now: 
+------------------------------------
+ | 6 | 7 | 0 | 
+------------------------------------
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 6
+start timer at seqnum 6
+重发报文: seqnum = 6, acknum = -1, checksum = 19270, EEEEEEEEEEEEEEEEEEEE
 ******模拟网络环境******：向上递交给应用层数据：EEEEEEEEEEEEEEEEEEEE
 接收方发送确认报文: seqnum = -1, acknum = 6, checksum = 12845, ....................
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 6
+start timer at seqnum 6
+重发报文: seqnum = 6, acknum = -1, checksum = 19270, EEEEEEEEEEEEEEEEEEEE
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 6, acknum = -1, checksum = 19270, EEEEEEEEEEEEEEEEEEEE
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 6, checksum = 12845, ....................
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 6
+start timer at seqnum 6
+重发报文: seqnum = 6, acknum = -1, checksum = 19270, EEEEEEEEEEEEEEEEEEEE
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 6, acknum = -1, checksum = 19270, EEEEEEEEEEEEEEEEEEEE
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 6, checksum = 12845, ....................
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 6
+start timer at seqnum 6
+重发报文: seqnum = 6, acknum = -1, checksum = 19270, EEEEEEEEEEEEEEEEEEEE
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = -999999, acknum = -1, checksum = 19270, EEEEEEEEEEEEEEEEEEEE
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 6, checksum = 12845, ....................
+连续1个冗余ACK
 发送方正确收到确认: seqnum = -1, acknum = 6, checksum = 12845, ....................
 stop timer at seqnum 6
 start timer at seqnum 7
+window now: 
+------------------------------------
+ | 7 | 0 | 
+------------------------------------
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 7
+start timer at seqnum 7
+重发报文: seqnum = 7, acknum = -1, checksum = 16699, FFFFFFFFFFFFFFFFFFFF
 ******模拟网络环境******：向上递交给应用层数据：FFFFFFFFFFFFFFFFFFFF
 接收方发送确认报文: seqnum = -1, acknum = 7, checksum = 12844, ....................
 发送方正确收到确认: seqnum = -1, acknum = 7, checksum = 12844, ....................
 stop timer at seqnum 7
 start timer at seqnum 0
-ERROR：接收方未收到正确报文：检验和错误: seqnum = 0, acknum = -1, checksum = 14136, HGGGGGGGGGGGGGGGGGGG
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 7, checksum = 12844, ....................
-连续1个冗余ACK
+window now: 
+------------------------------------
+ | 0 | 
+------------------------------------
 计时器超时，下面重发第一个没被确认的包
 stop timer at seqnum 0
 start timer at seqnum 0
@@ -277,221 +719,539 @@ start timer at seqnum 0
 接收方发送确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
 发送方正确收到确认: seqnum = -1, acknum = 0, checksum = 12851, ....................
 stop timer at seqnum 0
+window now: 
+------------------------------------
+ | 
+------------------------------------
 发送方发送报文: seqnum = 1, acknum = -1, checksum = 11565, HHHHHHHHHHHHHHHHHHHH
 start timer at seqnum 1
+window now: 
+------------------------------------
+ | 1 | 
+------------------------------------
 发送方发送报文: seqnum = 2, acknum = -1, checksum = 8994, IIIIIIIIIIIIIIIIIIII
+window now: 
+------------------------------------
+ | 1 | 2 | 
+------------------------------------
 发送方发送报文: seqnum = 3, acknum = -1, checksum = 6423, JJJJJJJJJJJJJJJJJJJJ
+window now: 
+------------------------------------
+ | 1 | 2 | 3 | 
+------------------------------------
 发送方发送报文: seqnum = 4, acknum = -1, checksum = 3852, KKKKKKKKKKKKKKKKKKKK
 the window is full!
+window now: 
+------------------------------------
+ | 1 | 2 | 3 | 4 | 
+------------------------------------
 ******模拟网络环境******：向上递交给应用层数据：HHHHHHHHHHHHHHHHHHHH
 接收方发送确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
-发送方正确收到确认: seqnum = -1, acknum = 1, checksum = 12850, ....................
-stop timer at seqnum 1
-start timer at seqnum 2
-******模拟网络环境******：向上递交给应用层数据：IIIIIIIIIIIIIIIIIIII
-接收方发送确认报文: seqnum = -1, acknum = 2, checksum = 12849, ....................
-发送方正确收到确认: seqnum = -1, acknum = 2, checksum = 12849, ....................
-stop timer at seqnum 2
-start timer at seqnum 3
-******模拟网络环境******：向上递交给应用层数据：JJJJJJJJJJJJJJJJJJJJ
-接收方发送确认报文: seqnum = -1, acknum = 3, checksum = 12848, ....................
-发送方正确收到确认: seqnum = -1, acknum = 3, checksum = 12848, ....................
-stop timer at seqnum 3
-start timer at seqnum 4
-******模拟网络环境******：向上递交给应用层数据：KKKKKKKKKKKKKKKKKKKK
-接收方发送确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
-发送方正确收到确认: seqnum = -1, acknum = 4, checksum = 12847, ....................
-stop timer at seqnum 4
-发送方发送报文: seqnum = 5, acknum = -1, checksum = 1281, LLLLLLLLLLLLLLLLLLLL
-start timer at seqnum 5
-发送方发送报文: seqnum = 6, acknum = -1, checksum = 64245, MMMMMMMMMMMMMMMMMMMM
-发送方发送报文: seqnum = 7, acknum = -1, checksum = 61674, NNNNNNNNNNNNNNNNNNNN
-发送方发送报文: seqnum = 0, acknum = -1, checksum = 59111, OOOOOOOOOOOOOOOOOOOO
-the window is full!
-******模拟网络环境******：向上递交给应用层数据：LLLLLLLLLLLLLLLLLLLL
-接收方发送确认报文: seqnum = -1, acknum = 5, checksum = 12846, ....................
-******模拟网络环境******：向上递交给应用层数据：MMMMMMMMMMMMMMMMMMMM
-接收方发送确认报文: seqnum = -1, acknum = 6, checksum = 12845, ....................
-发送方正确收到确认: seqnum = -1, acknum = 5, checksum = 12846, ....................
-stop timer at seqnum 5
-start timer at seqnum 6
-发送方正确收到确认: seqnum = -1, acknum = 6, checksum = 12845, ....................
-stop timer at seqnum 6
-start timer at seqnum 7
-******模拟网络环境******：向上递交给应用层数据：NNNNNNNNNNNNNNNNNNNN
-接收方发送确认报文: seqnum = -1, acknum = 7, checksum = 12844, ....................
-发送方正确收到确认: seqnum = -1, acknum = 7, checksum = 12844, ....................
-stop timer at seqnum 7
-start timer at seqnum 0
-******模拟网络环境******：向上递交给应用层数据：OOOOOOOOOOOOOOOOOOOO
-接收方发送确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
-发送方正确收到确认: seqnum = -1, acknum = 0, checksum = 12851, ....................
-stop timer at seqnum 0
-发送方发送报文: seqnum = 1, acknum = -1, checksum = 56540, PPPPPPPPPPPPPPPPPPPP
-start timer at seqnum 1
-发送方发送报文: seqnum = 2, acknum = -1, checksum = 53969, QQQQQQQQQQQQQQQQQQQQ
-发送方发送报文: seqnum = 3, acknum = -1, checksum = 51398, RRRRRRRRRRRRRRRRRRRR
-发送方发送报文: seqnum = 4, acknum = -1, checksum = 48827, SSSSSSSSSSSSSSSSSSSS
-the window is full!
-******模拟网络环境******：向上递交给应用层数据：PPPPPPPPPPPPPPPPPPPP
-接收方发送确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
-******模拟网络环境******：向上递交给应用层数据：QQQQQQQQQQQQQQQQQQQQ
-接收方发送确认报文: seqnum = -1, acknum = 2, checksum = 12849, ....................
-计时器超时，下面重发第一个没被确认的包
-stop timer at seqnum 1
-start timer at seqnum 1
-重发报文: seqnum = 1, acknum = -1, checksum = 56540, PPPPPPPPPPPPPPPPPPPP
-******模拟网络环境******：向上递交给应用层数据：RRRRRRRRRRRRRRRRRRRR
-接收方发送确认报文: seqnum = -1, acknum = 3, checksum = 12848, ....................
-发送方正确收到确认: seqnum = -1, acknum = 2, checksum = 12849, ....................
-stop timer at seqnum 1
-start timer at seqnum 3
-发送方正确收到确认: seqnum = -1, acknum = 3, checksum = 12848, ....................
-stop timer at seqnum 3
-start timer at seqnum 4
-******模拟网络环境******：向上递交给应用层数据：SSSSSSSSSSSSSSSSSSSS
-接收方发送确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
-发送方正确收到确认: seqnum = -1, acknum = 4, checksum = 12847, ....................
-stop timer at seqnum 4
-ERROR：接收方未收到正确报文：报文序号错误: seqnum = 1, acknum = -1, checksum = 56540, PPPPPPPPPPPPPPPPPPPP
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
-发送方发送报文: seqnum = 5, acknum = -1, checksum = 46256, TTTTTTTTTTTTTTTTTTTT
-start timer at seqnum 5
-发送方发送报文: seqnum = 6, acknum = -1, checksum = 43685, UUUUUUUUUUUUUUUUUUUU
-发送方发送报文: seqnum = 7, acknum = -1, checksum = 41114, VVVVVVVVVVVVVVVVVVVV
-发送方发送报文: seqnum = 0, acknum = -1, checksum = 38551, WWWWWWWWWWWWWWWWWWWW
-the window is full!
-******模拟网络环境******：向上递交给应用层数据：TTTTTTTTTTTTTTTTTTTT
-接收方发送确认报文: seqnum = -1, acknum = 5, checksum = 12846, ....................
-******模拟网络环境******：向上递交给应用层数据：UUUUUUUUUUUUUUUUUUUU
-接收方发送确认报文: seqnum = -1, acknum = 6, checksum = 12845, ....................
-计时器超时，下面重发第一个没被确认的包
-stop timer at seqnum 5
-start timer at seqnum 5
-重发报文: seqnum = 5, acknum = -1, checksum = 46256, TTTTTTTTTTTTTTTTTTTT
-******模拟网络环境******：向上递交给应用层数据：VVVVVVVVVVVVVVVVVVVV
-接收方发送确认报文: seqnum = -1, acknum = 7, checksum = 12844, ....................
-******模拟网络环境******：向上递交给应用层数据：WWWWWWWWWWWWWWWWWWWW
-接收方发送确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
-ERROR：接收方未收到正确报文：报文序号错误: seqnum = 5, acknum = -1, checksum = 46256, TTTTTTTTTTTTTTTTTTTT
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
-发送方正确收到确认: seqnum = -1, acknum = 7, checksum = 12844, ....................
-stop timer at seqnum 5
-start timer at seqnum 0
-发送方正确收到确认: seqnum = -1, acknum = 0, checksum = 12851, ....................
-stop timer at seqnum 0
-连续1个冗余ACK
-发送方发送报文: seqnum = 1, acknum = -1, checksum = 35980, XXXXXXXXXXXXXXXXXXXX
-start timer at seqnum 1
-发送方发送报文: seqnum = 2, acknum = -1, checksum = 33409, YYYYYYYYYYYYYYYYYYYY
-发送方发送报文: seqnum = 3, acknum = -1, checksum = 30838, ZZZZZZZZZZZZZZZZZZZZ
-发送方发送报文: seqnum = 4, acknum = -1, checksum = 29552, AAAAAAAAAAAAAAAAAAAA
-the window is full!
-******模拟网络环境******：向上递交给应用层数据：XXXXXXXXXXXXXXXXXXXX
-接收方发送确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
-ERROR：接收方未收到正确报文：报文序号错误: seqnum = 3, acknum = -1, checksum = 30838, ZZZZZZZZZZZZZZZZZZZZ
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = -999999, acknum = -1, checksum = 8994, IIIIIIIIIIIIIIIIIIII
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 3, acknum = -1, checksum = 6423, JJJJJJJJJJJJJJJJJJJJ
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 4, acknum = -1, checksum = 3852, KKKKKKKKKKKKKKKKKKKK
 接受方重新发送上次的确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
 计时器超时，下面重发第一个没被确认的包
 stop timer at seqnum 1
 start timer at seqnum 1
-重发报文: seqnum = 1, acknum = -1, checksum = 35980, XXXXXXXXXXXXXXXXXXXX
-ERROR：接收方未收到正确报文：报文序号错误: seqnum = 4, acknum = -1, checksum = 29552, AAAAAAAAAAAAAAAAAAAA
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
+重发报文: seqnum = 1, acknum = -1, checksum = 11565, HHHHHHHHHHHHHHHHHHHH
 连续1个冗余ACK
 发送方正确收到确认: seqnum = -1, acknum = 1, checksum = 12850, ....................
 stop timer at seqnum 1
 start timer at seqnum 2
-ERROR：接收方未收到正确报文：报文序号错误: seqnum = 1, acknum = -1, checksum = 35980, XXXXXXXXXXXXXXXXXXXX
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
+window now: 
+------------------------------------
+ | 2 | 3 | 4 | 
+------------------------------------
 连续2个冗余ACK
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = -999999, acknum = -1, checksum = 11565, HHHHHHHHHHHHHHHHHHHH
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
 连续3个冗余ACK
 连续三个冗余ACK： 1 触发快速重传
 stop timer at seqnum 2
 start timer at seqnum 2
-重发报文: seqnum = 2, acknum = -1, checksum = 33409, YYYYYYYYYYYYYYYYYYYY
-******模拟网络环境******：向上递交给应用层数据：YYYYYYYYYYYYYYYYYYYY
+重发报文: seqnum = 2, acknum = -1, checksum = 8994, IIIIIIIIIIIIIIIIIIII
+******模拟网络环境******：向上递交给应用层数据：IIIIIIIIIIIIIIIIIIII
 接收方发送确认报文: seqnum = -1, acknum = 2, checksum = 12849, ....................
 发送方正确收到确认: seqnum = -1, acknum = 2, checksum = 12849, ....................
 stop timer at seqnum 2
 start timer at seqnum 3
+window now: 
+------------------------------------
+ | 3 | 4 | 
+------------------------------------
 计时器超时，下面重发第一个没被确认的包
 stop timer at seqnum 3
 start timer at seqnum 3
-重发报文: seqnum = 3, acknum = -1, checksum = 30838, ZZZZZZZZZZZZZZZZZZZZ
-******模拟网络环境******：向上递交给应用层数据：ZZZZZZZZZZZZZZZZZZZZ
+重发报文: seqnum = 3, acknum = -1, checksum = 6423, JJJJJJJJJJJJJJJJJJJJ
+******模拟网络环境******：向上递交给应用层数据：JJJJJJJJJJJJJJJJJJJJ
 接收方发送确认报文: seqnum = -1, acknum = 3, checksum = 12848, ....................
 发送方正确收到确认: seqnum = -1, acknum = 3, checksum = 12848, ....................
 stop timer at seqnum 3
 start timer at seqnum 4
+window now: 
+------------------------------------
+ | 4 | 
+------------------------------------
 计时器超时，下面重发第一个没被确认的包
 stop timer at seqnum 4
 start timer at seqnum 4
-重发报文: seqnum = 4, acknum = -1, checksum = 29552, AAAAAAAAAAAAAAAAAAAA
-******模拟网络环境******：向上递交给应用层数据：AAAAAAAAAAAAAAAAAAAA
+重发报文: seqnum = 4, acknum = -1, checksum = 3852, KKKKKKKKKKKKKKKKKKKK
+******模拟网络环境******：向上递交给应用层数据：KKKKKKKKKKKKKKKKKKKK
 接收方发送确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
 发送方正确收到确认: seqnum = -1, acknum = 4, checksum = 12847, ....................
 stop timer at seqnum 4
-发送方发送报文: seqnum = 5, acknum = -1, checksum = 26981, BBBBBBBBBBBBBBBBBBBB
+window now: 
+------------------------------------
+ | 
+------------------------------------
+发送方发送报文: seqnum = 5, acknum = -1, checksum = 1281, LLLLLLLLLLLLLLLLLLLL
 start timer at seqnum 5
-发送方发送报文: seqnum = 6, acknum = -1, checksum = 24410, CCCCCCCCCCCCCCCCCCCC
-发送方发送报文: seqnum = 7, acknum = -1, checksum = 21839, DDDDDDDDDDDDDDDDDDDD
-发送方发送报文: seqnum = 0, acknum = -1, checksum = 19276, EEEEEEEEEEEEEEEEEEEE
+window now: 
+------------------------------------
+ | 5 | 
+------------------------------------
+发送方发送报文: seqnum = 6, acknum = -1, checksum = 64245, MMMMMMMMMMMMMMMMMMMM
+window now: 
+------------------------------------
+ | 5 | 6 | 
+------------------------------------
+发送方发送报文: seqnum = 7, acknum = -1, checksum = 61674, NNNNNNNNNNNNNNNNNNNN
+window now: 
+------------------------------------
+ | 5 | 6 | 7 | 
+------------------------------------
+发送方发送报文: seqnum = 0, acknum = -1, checksum = 59111, OOOOOOOOOOOOOOOOOOOO
 the window is full!
-******模拟网络环境******：向上递交给应用层数据：BBBBBBBBBBBBBBBBBBBB
+window now: 
+------------------------------------
+ | 5 | 6 | 7 | 0 | 
+------------------------------------
+******模拟网络环境******：向上递交给应用层数据：LLLLLLLLLLLLLLLLLLLL
 接收方发送确认报文: seqnum = -1, acknum = 5, checksum = 12846, ....................
 发送方正确收到确认: seqnum = -1, acknum = 5, checksum = 12846, ....................
 stop timer at seqnum 5
 start timer at seqnum 6
-******模拟网络环境******：向上递交给应用层数据：CCCCCCCCCCCCCCCCCCCC
+window now: 
+------------------------------------
+ | 6 | 7 | 0 | 
+------------------------------------
+******模拟网络环境******：向上递交给应用层数据：MMMMMMMMMMMMMMMMMMMM
 接收方发送确认报文: seqnum = -1, acknum = 6, checksum = 12845, ....................
-******模拟网络环境******：向上递交给应用层数据：DDDDDDDDDDDDDDDDDDDD
+发送方正确收到确认: seqnum = -1, acknum = 6, checksum = 12845, ....................
+stop timer at seqnum 6
+start timer at seqnum 7
+window now: 
+------------------------------------
+ | 7 | 0 | 
+------------------------------------
+******模拟网络环境******：向上递交给应用层数据：NNNNNNNNNNNNNNNNNNNN
 接收方发送确认报文: seqnum = -1, acknum = 7, checksum = 12844, ....................
-******模拟网络环境******：向上递交给应用层数据：EEEEEEEEEEEEEEEEEEEE
+发送方正确收到确认: seqnum = -1, acknum = 7, checksum = 12844, ....................
+stop timer at seqnum 7
+start timer at seqnum 0
+window now: 
+------------------------------------
+ | 0 | 
+------------------------------------
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 0
+start timer at seqnum 0
+重发报文: seqnum = 0, acknum = -1, checksum = 59111, OOOOOOOOOOOOOOOOOOOO
+******模拟网络环境******：向上递交给应用层数据：OOOOOOOOOOOOOOOOOOOO
 接收方发送确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
-计时器超时，下面重发第一个没被确认的包
-stop timer at seqnum 6
-start timer at seqnum 6
-重发报文: seqnum = 6, acknum = -1, checksum = 24410, CCCCCCCCCCCCCCCCCCCC
-计时器超时，下面重发第一个没被确认的包
-stop timer at seqnum 6
-start timer at seqnum 6
-重发报文: seqnum = 6, acknum = -1, checksum = 24410, CCCCCCCCCCCCCCCCCCCC
-ERROR：接收方未收到正确报文：报文序号错误: seqnum = 6, acknum = -1, checksum = 24410, CCCCCCCCCCCCCCCCCCCC
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
-连续1个冗余ACK
 发送方正确收到确认: seqnum = -1, acknum = 0, checksum = 12851, ....................
-stop timer at seqnum 6
-发送方发送报文: seqnum = 1, acknum = -1, checksum = 16705, FFFFFFFFFFFFFFFFFFFF
+stop timer at seqnum 0
+window now: 
+------------------------------------
+ | 
+------------------------------------
+发送方发送报文: seqnum = 1, acknum = -1, checksum = 56540, PPPPPPPPPPPPPPPPPPPP
 start timer at seqnum 1
-发送方发送报文: seqnum = 2, acknum = -1, checksum = 14134, GGGGGGGGGGGGGGGGGGGG
-发送方发送报文: seqnum = 3, acknum = -1, checksum = 11563, HHHHHHHHHHHHHHHHHHHH
-发送方发送报文: seqnum = 4, acknum = -1, checksum = 8992, IIIIIIIIIIIIIIIIIIII
+window now: 
+------------------------------------
+ | 1 | 
+------------------------------------
+发送方发送报文: seqnum = 2, acknum = -1, checksum = 53969, QQQQQQQQQQQQQQQQQQQQ
+window now: 
+------------------------------------
+ | 1 | 2 | 
+------------------------------------
+发送方发送报文: seqnum = 3, acknum = -1, checksum = 51398, RRRRRRRRRRRRRRRRRRRR
+window now: 
+------------------------------------
+ | 1 | 2 | 3 | 
+------------------------------------
+发送方发送报文: seqnum = 4, acknum = -1, checksum = 48827, SSSSSSSSSSSSSSSSSSSS
 the window is full!
-******模拟网络环境******：向上递交给应用层数据：FFFFFFFFFFFFFFFFFFFF
+window now: 
+------------------------------------
+ | 1 | 2 | 3 | 4 | 
+------------------------------------
+******模拟网络环境******：向上递交给应用层数据：PPPPPPPPPPPPPPPPPPPP
 接收方发送确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
-******模拟网络环境******：向上递交给应用层数据：GGGGGGGGGGGGGGGGGGGG
+******模拟网络环境******：向上递交给应用层数据：QQQQQQQQQQQQQQQQQQQQ
 接收方发送确认报文: seqnum = -1, acknum = 2, checksum = 12849, ....................
 发送方正确收到确认: seqnum = -1, acknum = 1, checksum = 12850, ....................
 stop timer at seqnum 1
 start timer at seqnum 2
-******模拟网络环境******：向上递交给应用层数据：HHHHHHHHHHHHHHHHHHHH
+window now: 
+------------------------------------
+ | 2 | 3 | 4 | 
+------------------------------------
+******模拟网络环境******：向上递交给应用层数据：RRRRRRRRRRRRRRRRRRRR
+接收方发送确认报文: seqnum = -1, acknum = 3, checksum = 12848, ....................
+ERROR：接收方未收到正确报文：检验和错误: seqnum = 4, acknum = -1, checksum = 48827, TSSSSSSSSSSSSSSSSSSS
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 3, checksum = 12848, ....................
+发送方正确收到确认: seqnum = -1, acknum = 2, checksum = 12849, ....................
+stop timer at seqnum 2
+start timer at seqnum 3
+window now: 
+------------------------------------
+ | 3 | 4 | 
+------------------------------------
+连续1个冗余ACK
+发送方正确收到确认: seqnum = -1, acknum = 3, checksum = 12848, ....................
+stop timer at seqnum 3
+start timer at seqnum 4
+window now: 
+------------------------------------
+ | 4 | 
+------------------------------------
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 4
+start timer at seqnum 4
+重发报文: seqnum = 4, acknum = -1, checksum = 48827, SSSSSSSSSSSSSSSSSSSS
+******模拟网络环境******：向上递交给应用层数据：SSSSSSSSSSSSSSSSSSSS
+接收方发送确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 4
+start timer at seqnum 4
+重发报文: seqnum = 4, acknum = -1, checksum = 48827, SSSSSSSSSSSSSSSSSSSS
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 4, acknum = -1, checksum = 48827, SSSSSSSSSSSSSSSSSSSS
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
+连续1个冗余ACK
+发送方正确收到确认: seqnum = -1, acknum = 4, checksum = 12847, ....................
+stop timer at seqnum 4
+window now: 
+------------------------------------
+ | 
+------------------------------------
+发送方发送报文: seqnum = 5, acknum = -1, checksum = 46256, TTTTTTTTTTTTTTTTTTTT
+start timer at seqnum 5
+window now: 
+------------------------------------
+ | 5 | 
+------------------------------------
+发送方发送报文: seqnum = 6, acknum = -1, checksum = 43685, UUUUUUUUUUUUUUUUUUUU
+window now: 
+------------------------------------
+ | 5 | 6 | 
+------------------------------------
+发送方发送报文: seqnum = 7, acknum = -1, checksum = 41114, VVVVVVVVVVVVVVVVVVVV
+window now: 
+------------------------------------
+ | 5 | 6 | 7 | 
+------------------------------------
+发送方发送报文: seqnum = 0, acknum = -1, checksum = 38551, WWWWWWWWWWWWWWWWWWWW
+the window is full!
+window now: 
+------------------------------------
+ | 5 | 6 | 7 | 0 | 
+------------------------------------
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 6, acknum = -1, checksum = 43685, VUUUUUUUUUUUUUUUUUUU
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
+连续2个冗余ACK
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 7, acknum = -1, checksum = 41114, VVVVVVVVVVVVVVVVVVVV
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 0, acknum = -1, checksum = 38551, WWWWWWWWWWWWWWWWWWWW
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
+连续3个冗余ACK
+连续三个冗余ACK： 4 触发快速重传
+stop timer at seqnum 5
+start timer at seqnum 5
+重发报文: seqnum = 5, acknum = -1, checksum = 46256, TTTTTTTTTTTTTTTTTTTT
+******模拟网络环境******：向上递交给应用层数据：TTTTTTTTTTTTTTTTTTTT
+接收方发送确认报文: seqnum = -1, acknum = 5, checksum = 12846, ....................
+连续1个冗余ACK
+发送方正确收到确认: seqnum = -1, acknum = 5, checksum = 12846, ....................
+stop timer at seqnum 5
+start timer at seqnum 6
+window now: 
+------------------------------------
+ | 6 | 7 | 0 | 
+------------------------------------
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 6
+start timer at seqnum 6
+重发报文: seqnum = 6, acknum = -1, checksum = 43685, UUUUUUUUUUUUUUUUUUUU
+******模拟网络环境******：向上递交给应用层数据：UUUUUUUUUUUUUUUUUUUU
+接收方发送确认报文: seqnum = -1, acknum = 6, checksum = 12845, ....................
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 6
+start timer at seqnum 6
+重发报文: seqnum = 6, acknum = -1, checksum = 43685, UUUUUUUUUUUUUUUUUUUU
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 6, acknum = -1, checksum = 43685, VUUUUUUUUUUUUUUUUUUU
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 6, checksum = 12845, ....................
+发送方正确收到确认: seqnum = -1, acknum = 6, checksum = 12845, ....................
+stop timer at seqnum 6
+start timer at seqnum 7
+window now: 
+------------------------------------
+ | 7 | 0 | 
+------------------------------------
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 7
+start timer at seqnum 7
+重发报文: seqnum = 7, acknum = -1, checksum = 41114, VVVVVVVVVVVVVVVVVVVV
+******模拟网络环境******：向上递交给应用层数据：VVVVVVVVVVVVVVVVVVVV
+接收方发送确认报文: seqnum = -1, acknum = 7, checksum = 12844, ....................
+发送方正确收到确认: seqnum = -1, acknum = 7, checksum = 12844, ....................
+stop timer at seqnum 7
+start timer at seqnum 0
+window now: 
+------------------------------------
+ | 0 | 
+------------------------------------
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 0
+start timer at seqnum 0
+重发报文: seqnum = 0, acknum = -1, checksum = 38551, WWWWWWWWWWWWWWWWWWWW
+******模拟网络环境******：向上递交给应用层数据：WWWWWWWWWWWWWWWWWWWW
+接收方发送确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 0
+start timer at seqnum 0
+重发报文: seqnum = 0, acknum = -1, checksum = 38551, WWWWWWWWWWWWWWWWWWWW
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 0, acknum = -1, checksum = 38551, WWWWWWWWWWWWWWWWWWWW
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
+发送方正确收到确认: seqnum = -1, acknum = 0, checksum = 12851, ....................
+stop timer at seqnum 0
+window now: 
+------------------------------------
+ | 
+------------------------------------
+发送方发送报文: seqnum = 1, acknum = -1, checksum = 35980, XXXXXXXXXXXXXXXXXXXX
+start timer at seqnum 1
+window now: 
+------------------------------------
+ | 1 | 
+------------------------------------
+发送方发送报文: seqnum = 2, acknum = -1, checksum = 33409, YYYYYYYYYYYYYYYYYYYY
+window now: 
+------------------------------------
+ | 1 | 2 | 
+------------------------------------
+发送方发送报文: seqnum = 3, acknum = -1, checksum = 30838, ZZZZZZZZZZZZZZZZZZZZ
+window now: 
+------------------------------------
+ | 1 | 2 | 3 | 
+------------------------------------
+发送方发送报文: seqnum = 4, acknum = -1, checksum = 29552, AAAAAAAAAAAAAAAAAAAA
+the window is full!
+window now: 
+------------------------------------
+ | 1 | 2 | 3 | 4 | 
+------------------------------------
+******模拟网络环境******：向上递交给应用层数据：XXXXXXXXXXXXXXXXXXXX
+接收方发送确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
+发送方正确收到确认: seqnum = -1, acknum = 1, checksum = 12850, ....................
+stop timer at seqnum 1
+start timer at seqnum 2
+window now: 
+------------------------------------
+ | 2 | 3 | 4 | 
+------------------------------------
+******模拟网络环境******：向上递交给应用层数据：YYYYYYYYYYYYYYYYYYYY
+接收方发送确认报文: seqnum = -1, acknum = 2, checksum = 12849, ....................
+******模拟网络环境******：向上递交给应用层数据：ZZZZZZZZZZZZZZZZZZZZ
 接收方发送确认报文: seqnum = -1, acknum = 3, checksum = 12848, ....................
 发送方正确收到确认: seqnum = -1, acknum = 2, checksum = 12849, ....................
 stop timer at seqnum 2
 start timer at seqnum 3
-******模拟网络环境******：向上递交给应用层数据：IIIIIIIIIIIIIIIIIIII
+window now: 
+------------------------------------
+ | 3 | 4 | 
+------------------------------------
+******模拟网络环境******：向上递交给应用层数据：AAAAAAAAAAAAAAAAAAAA
 接收方发送确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 3
+start timer at seqnum 3
+重发报文: seqnum = 3, acknum = -1, checksum = 30838, ZZZZZZZZZZZZZZZZZZZZ
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 3, acknum = -1, checksum = 30838, ZZZZZZZZZZZZZZZZZZZZ
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 3
+start timer at seqnum 3
+重发报文: seqnum = 3, acknum = -1, checksum = 30838, ZZZZZZZZZZZZZZZZZZZZ
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 3, acknum = -1, checksum = 30838, ZZZZZZZZZZZZZZZZZZZZ
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
+发送方正确收到确认: seqnum = -1, acknum = 4, checksum = 12847, ....................
+stop timer at seqnum 3
+window now: 
+------------------------------------
+ | 
+------------------------------------
+发送方发送报文: seqnum = 5, acknum = -1, checksum = 26981, BBBBBBBBBBBBBBBBBBBB
+start timer at seqnum 5
+window now: 
+------------------------------------
+ | 5 | 
+------------------------------------
+发送方发送报文: seqnum = 6, acknum = -1, checksum = 24410, CCCCCCCCCCCCCCCCCCCC
+window now: 
+------------------------------------
+ | 5 | 6 | 
+------------------------------------
+发送方发送报文: seqnum = 7, acknum = -1, checksum = 21839, DDDDDDDDDDDDDDDDDDDD
+window now: 
+------------------------------------
+ | 5 | 6 | 7 | 
+------------------------------------
+发送方发送报文: seqnum = 0, acknum = -1, checksum = 19276, EEEEEEEEEEEEEEEEEEEE
+the window is full!
+window now: 
+------------------------------------
+ | 5 | 6 | 7 | 0 | 
+------------------------------------
+******模拟网络环境******：向上递交给应用层数据：BBBBBBBBBBBBBBBBBBBB
+接收方发送确认报文: seqnum = -1, acknum = 5, checksum = 12846, ....................
+******模拟网络环境******：向上递交给应用层数据：CCCCCCCCCCCCCCCCCCCC
+接收方发送确认报文: seqnum = -1, acknum = 6, checksum = 12845, ....................
+发送方正确收到确认: seqnum = -1, acknum = 6, checksum = 12845, ....................
+stop timer at seqnum 5
+start timer at seqnum 7
+window now: 
+------------------------------------
+ | 7 | 0 | 
+------------------------------------
+******模拟网络环境******：向上递交给应用层数据：DDDDDDDDDDDDDDDDDDDD
+接收方发送确认报文: seqnum = -1, acknum = 7, checksum = 12844, ....................
+发送方正确收到确认: seqnum = -1, acknum = 7, checksum = 12844, ....................
+stop timer at seqnum 7
+start timer at seqnum 0
+window now: 
+------------------------------------
+ | 0 | 
+------------------------------------
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 0
+start timer at seqnum 0
+重发报文: seqnum = 0, acknum = -1, checksum = 19276, EEEEEEEEEEEEEEEEEEEE
+******模拟网络环境******：向上递交给应用层数据：EEEEEEEEEEEEEEEEEEEE
+接收方发送确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
+发送方正确收到确认: seqnum = -1, acknum = 0, checksum = 12851, ....................
+stop timer at seqnum 0
+window now: 
+------------------------------------
+ | 
+------------------------------------
+发送方发送报文: seqnum = 1, acknum = -1, checksum = 16705, FFFFFFFFFFFFFFFFFFFF
+start timer at seqnum 1
+window now: 
+------------------------------------
+ | 1 | 
+------------------------------------
+发送方发送报文: seqnum = 2, acknum = -1, checksum = 14134, GGGGGGGGGGGGGGGGGGGG
+window now: 
+------------------------------------
+ | 1 | 2 | 
+------------------------------------
+发送方发送报文: seqnum = 3, acknum = -1, checksum = 11563, HHHHHHHHHHHHHHHHHHHH
+window now: 
+------------------------------------
+ | 1 | 2 | 3 | 
+------------------------------------
+发送方发送报文: seqnum = 4, acknum = -1, checksum = 8992, IIIIIIIIIIIIIIIIIIII
+the window is full!
+window now: 
+------------------------------------
+ | 1 | 2 | 3 | 4 | 
+------------------------------------
+******模拟网络环境******：向上递交给应用层数据：FFFFFFFFFFFFFFFFFFFF
+接收方发送确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 3, acknum = -1, checksum = 11563, HHHHHHHHHHHHHHHHHHHH
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
+发送方正确收到确认: seqnum = -1, acknum = 1, checksum = 12850, ....................
+stop timer at seqnum 1
+start timer at seqnum 2
+window now: 
+------------------------------------
+ | 2 | 3 | 4 | 
+------------------------------------
+连续1个冗余ACK
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 4, acknum = -1, checksum = 8992, IIIIIIIIIIIIIIIIIIII
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 2
+start timer at seqnum 2
+重发报文: seqnum = 2, acknum = -1, checksum = 14134, GGGGGGGGGGGGGGGGGGGG
+******模拟网络环境******：向上递交给应用层数据：GGGGGGGGGGGGGGGGGGGG
+接收方发送确认报文: seqnum = -1, acknum = 2, checksum = 12849, ....................
+发送方正确收到确认: seqnum = -1, acknum = 2, checksum = 12849, ....................
+stop timer at seqnum 2
+start timer at seqnum 3
+window now: 
+------------------------------------
+ | 3 | 4 | 
+------------------------------------
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 3
+start timer at seqnum 3
+重发报文: seqnum = 3, acknum = -1, checksum = 11563, HHHHHHHHHHHHHHHHHHHH
+******模拟网络环境******：向上递交给应用层数据：HHHHHHHHHHHHHHHHHHHH
+接收方发送确认报文: seqnum = -1, acknum = 3, checksum = 12848, ....................
 发送方正确收到确认: seqnum = -1, acknum = 3, checksum = 12848, ....................
 stop timer at seqnum 3
 start timer at seqnum 4
+window now: 
+------------------------------------
+ | 4 | 
+------------------------------------
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 4
+start timer at seqnum 4
+重发报文: seqnum = 4, acknum = -1, checksum = 8992, IIIIIIIIIIIIIIIIIIII
+******模拟网络环境******：向上递交给应用层数据：IIIIIIIIIIIIIIIIIIII
+接收方发送确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 4
+start timer at seqnum 4
+重发报文: seqnum = 4, acknum = -1, checksum = 8992, IIIIIIIIIIIIIIIIIIII
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 4, acknum = -1, checksum = 8992, IIIIIIIIIIIIIIIIIIII
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
+连续1个冗余ACK
 发送方正确收到确认: seqnum = -1, acknum = 4, checksum = 12847, ....................
 stop timer at seqnum 4
+window now: 
+------------------------------------
+ | 
+------------------------------------
 发送方发送报文: seqnum = 5, acknum = -1, checksum = 6421, JJJJJJJJJJJJJJJJJJJJ
 start timer at seqnum 5
+window now: 
+------------------------------------
+ | 5 | 
+------------------------------------
 发送方发送报文: seqnum = 6, acknum = -1, checksum = 3850, KKKKKKKKKKKKKKKKKKKK
+window now: 
+------------------------------------
+ | 5 | 6 | 
+------------------------------------
 发送方发送报文: seqnum = 7, acknum = -1, checksum = 1279, LLLLLLLLLLLLLLLLLLLL
+window now: 
+------------------------------------
+ | 5 | 6 | 7 | 
+------------------------------------
 发送方发送报文: seqnum = 0, acknum = -1, checksum = 64251, MMMMMMMMMMMMMMMMMMMM
 the window is full!
+window now: 
+------------------------------------
+ | 5 | 6 | 7 | 0 | 
+------------------------------------
 ******模拟网络环境******：向上递交给应用层数据：JJJJJJJJJJJJJJJJJJJJ
 接收方发送确认报文: seqnum = -1, acknum = 5, checksum = 12846, ....................
 ******模拟网络环境******：向上递交给应用层数据：KKKKKKKKKKKKKKKKKKKK
@@ -499,99 +1259,161 @@ the window is full!
 发送方正确收到确认: seqnum = -1, acknum = 5, checksum = 12846, ....................
 stop timer at seqnum 5
 start timer at seqnum 6
+window now: 
+------------------------------------
+ | 6 | 7 | 0 | 
+------------------------------------
+发送方正确收到确认: seqnum = -1, acknum = 6, checksum = 12845, ....................
+stop timer at seqnum 6
+start timer at seqnum 7
+window now: 
+------------------------------------
+ | 7 | 0 | 
+------------------------------------
 ******模拟网络环境******：向上递交给应用层数据：LLLLLLLLLLLLLLLLLLLL
 接收方发送确认报文: seqnum = -1, acknum = 7, checksum = 12844, ....................
 ******模拟网络环境******：向上递交给应用层数据：MMMMMMMMMMMMMMMMMMMM
 接收方发送确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
 发送方正确收到确认: seqnum = -1, acknum = 7, checksum = 12844, ....................
-stop timer at seqnum 6
+stop timer at seqnum 7
 start timer at seqnum 0
+window now: 
+------------------------------------
+ | 0 | 
+------------------------------------
 发送方正确收到确认: seqnum = -1, acknum = 0, checksum = 12851, ....................
 stop timer at seqnum 0
+window now: 
+------------------------------------
+ | 
+------------------------------------
 发送方发送报文: seqnum = 1, acknum = -1, checksum = 61680, NNNNNNNNNNNNNNNNNNNN
 start timer at seqnum 1
+window now: 
+------------------------------------
+ | 1 | 
+------------------------------------
 发送方发送报文: seqnum = 2, acknum = -1, checksum = 59109, OOOOOOOOOOOOOOOOOOOO
+window now: 
+------------------------------------
+ | 1 | 2 | 
+------------------------------------
 发送方发送报文: seqnum = 3, acknum = -1, checksum = 56538, PPPPPPPPPPPPPPPPPPPP
+window now: 
+------------------------------------
+ | 1 | 2 | 3 | 
+------------------------------------
 发送方发送报文: seqnum = 4, acknum = -1, checksum = 53967, QQQQQQQQQQQQQQQQQQQQ
 the window is full!
+window now: 
+------------------------------------
+ | 1 | 2 | 3 | 4 | 
+------------------------------------
 ******模拟网络环境******：向上递交给应用层数据：NNNNNNNNNNNNNNNNNNNN
 接收方发送确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
-ERROR：接收方未收到正确报文：检验和错误: seqnum = 2, acknum = -1, checksum = 59109, POOOOOOOOOOOOOOOOOOO
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
-ERROR：接收方未收到正确报文：报文序号错误: seqnum = 3, acknum = -1, checksum = 56538, PPPPPPPPPPPPPPPPPPPP
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
 发送方正确收到确认: seqnum = -1, acknum = 1, checksum = 12850, ....................
 stop timer at seqnum 1
 start timer at seqnum 2
-ERROR：接收方未收到正确报文：报文序号错误: seqnum = 4, acknum = -1, checksum = 53967, QQQQQQQQQQQQQQQQQQQQ
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
-连续1个冗余ACK
-连续2个冗余ACK
-计时器超时，下面重发第一个没被确认的包
-stop timer at seqnum 2
-start timer at seqnum 2
-重发报文: seqnum = 2, acknum = -1, checksum = 59109, OOOOOOOOOOOOOOOOOOOO
+window now: 
+------------------------------------
+ | 2 | 3 | 4 | 
+------------------------------------
 ******模拟网络环境******：向上递交给应用层数据：OOOOOOOOOOOOOOOOOOOO
 接收方发送确认报文: seqnum = -1, acknum = 2, checksum = 12849, ....................
 发送方正确收到确认: seqnum = -1, acknum = 2, checksum = 12849, ....................
 stop timer at seqnum 2
 start timer at seqnum 3
-计时器超时，下面重发第一个没被确认的包
-stop timer at seqnum 3
-start timer at seqnum 3
-重发报文: seqnum = 3, acknum = -1, checksum = 56538, PPPPPPPPPPPPPPPPPPPP
-计时器超时，下面重发第一个没被确认的包
-stop timer at seqnum 3
-start timer at seqnum 3
-重发报文: seqnum = 3, acknum = -1, checksum = 56538, PPPPPPPPPPPPPPPPPPPP
+window now: 
+------------------------------------
+ | 3 | 4 | 
+------------------------------------
 ******模拟网络环境******：向上递交给应用层数据：PPPPPPPPPPPPPPPPPPPP
 接收方发送确认报文: seqnum = -1, acknum = 3, checksum = 12848, ....................
+******模拟网络环境******：向上递交给应用层数据：QQQQQQQQQQQQQQQQQQQQ
+接收方发送确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
 发送方正确收到确认: seqnum = -1, acknum = 3, checksum = 12848, ....................
 stop timer at seqnum 3
 start timer at seqnum 4
-计时器超时，下面重发第一个没被确认的包
-stop timer at seqnum 4
-start timer at seqnum 4
-重发报文: seqnum = 4, acknum = -1, checksum = 53967, QQQQQQQQQQQQQQQQQQQQ
-******模拟网络环境******：向上递交给应用层数据：QQQQQQQQQQQQQQQQQQQQ
-接收方发送确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
+window now: 
+------------------------------------
+ | 4 | 
+------------------------------------
 发送方正确收到确认: seqnum = -1, acknum = 4, checksum = 12847, ....................
 stop timer at seqnum 4
+window now: 
+------------------------------------
+ | 
+------------------------------------
 发送方发送报文: seqnum = 5, acknum = -1, checksum = 51396, RRRRRRRRRRRRRRRRRRRR
 start timer at seqnum 5
+window now: 
+------------------------------------
+ | 5 | 
+------------------------------------
 发送方发送报文: seqnum = 6, acknum = -1, checksum = 48825, SSSSSSSSSSSSSSSSSSSS
+window now: 
+------------------------------------
+ | 5 | 6 | 
+------------------------------------
 发送方发送报文: seqnum = 7, acknum = -1, checksum = 46254, TTTTTTTTTTTTTTTTTTTT
+window now: 
+------------------------------------
+ | 5 | 6 | 7 | 
+------------------------------------
 发送方发送报文: seqnum = 0, acknum = -1, checksum = 43691, UUUUUUUUUUUUUUUUUUUU
 the window is full!
+window now: 
+------------------------------------
+ | 5 | 6 | 7 | 0 | 
+------------------------------------
 ******模拟网络环境******：向上递交给应用层数据：RRRRRRRRRRRRRRRRRRRR
 接收方发送确认报文: seqnum = -1, acknum = 5, checksum = 12846, ....................
-******模拟网络环境******：向上递交给应用层数据：SSSSSSSSSSSSSSSSSSSS
-接收方发送确认报文: seqnum = -1, acknum = 6, checksum = 12845, ....................
 发送方正确收到确认: seqnum = -1, acknum = 5, checksum = 12846, ....................
 stop timer at seqnum 5
 start timer at seqnum 6
+window now: 
+------------------------------------
+ | 6 | 7 | 0 | 
+------------------------------------
+ERROR：接收方未收到正确报文：检验和错误: seqnum = 6, acknum = -1, checksum = 48825, TSSSSSSSSSSSSSSSSSSS
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 5, checksum = 12846, ....................
+连续1个冗余ACK
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 7, acknum = -1, checksum = 46254, TTTTTTTTTTTTTTTTTTTT
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 5, checksum = 12846, ....................
+连续2个冗余ACK
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 0, acknum = -1, checksum = 43691, UUUUUUUUUUUUUUUUUUUU
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 5, checksum = 12846, ....................
+连续3个冗余ACK
+连续三个冗余ACK： 5 触发快速重传
+stop timer at seqnum 6
+start timer at seqnum 6
+重发报文: seqnum = 6, acknum = -1, checksum = 48825, SSSSSSSSSSSSSSSSSSSS
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 6
+start timer at seqnum 6
+重发报文: seqnum = 6, acknum = -1, checksum = 48825, SSSSSSSSSSSSSSSSSSSS
+******模拟网络环境******：向上递交给应用层数据：SSSSSSSSSSSSSSSSSSSS
+接收方发送确认报文: seqnum = -1, acknum = 6, checksum = 12845, ....................
 发送方正确收到确认: seqnum = -1, acknum = 6, checksum = 12845, ....................
 stop timer at seqnum 6
 start timer at seqnum 7
-ERROR：接收方未收到正确报文：检验和错误: seqnum = 7, acknum = -1, checksum = 46254, UTTTTTTTTTTTTTTTTTTT
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 6, checksum = 12845, ....................
-连续1个冗余ACK
+window now: 
+------------------------------------
+ | 7 | 0 | 
+------------------------------------
 计时器超时，下面重发第一个没被确认的包
 stop timer at seqnum 7
 start timer at seqnum 7
 重发报文: seqnum = 7, acknum = -1, checksum = 46254, TTTTTTTTTTTTTTTTTTTT
 ******模拟网络环境******：向上递交给应用层数据：TTTTTTTTTTTTTTTTTTTT
 接收方发送确认报文: seqnum = -1, acknum = 7, checksum = 12844, ....................
-计时器超时，下面重发第一个没被确认的包
-stop timer at seqnum 7
-start timer at seqnum 7
-重发报文: seqnum = 7, acknum = -1, checksum = 46254, TTTTTTTTTTTTTTTTTTTT
 发送方正确收到确认: seqnum = -1, acknum = 7, checksum = 12844, ....................
 stop timer at seqnum 7
 start timer at seqnum 0
-ERROR：接收方未收到正确报文：报文序号错误: seqnum = 7, acknum = -1, checksum = 46254, TTTTTTTTTTTTTTTTTTTT
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 7, checksum = 12844, ....................
-连续1个冗余ACK
+window now: 
+------------------------------------
+ | 0 | 
+------------------------------------
 计时器超时，下面重发第一个没被确认的包
 stop timer at seqnum 0
 start timer at seqnum 0
@@ -600,144 +1422,191 @@ start timer at seqnum 0
 接收方发送确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
 发送方正确收到确认: seqnum = -1, acknum = 0, checksum = 12851, ....................
 stop timer at seqnum 0
+window now: 
+------------------------------------
+ | 
+------------------------------------
 发送方发送报文: seqnum = 1, acknum = -1, checksum = 41120, VVVVVVVVVVVVVVVVVVVV
 start timer at seqnum 1
+window now: 
+------------------------------------
+ | 1 | 
+------------------------------------
 发送方发送报文: seqnum = 2, acknum = -1, checksum = 38549, WWWWWWWWWWWWWWWWWWWW
+window now: 
+------------------------------------
+ | 1 | 2 | 
+------------------------------------
 发送方发送报文: seqnum = 3, acknum = -1, checksum = 35978, XXXXXXXXXXXXXXXXXXXX
+window now: 
+------------------------------------
+ | 1 | 2 | 3 | 
+------------------------------------
 发送方发送报文: seqnum = 4, acknum = -1, checksum = 33407, YYYYYYYYYYYYYYYYYYYY
 the window is full!
+window now: 
+------------------------------------
+ | 1 | 2 | 3 | 4 | 
+------------------------------------
 ******模拟网络环境******：向上递交给应用层数据：VVVVVVVVVVVVVVVVVVVV
 接收方发送确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
+发送方正确收到确认: seqnum = -1, acknum = 1, checksum = 12850, ....................
+stop timer at seqnum 1
+start timer at seqnum 2
+window now: 
+------------------------------------
+ | 2 | 3 | 4 | 
+------------------------------------
 ******模拟网络环境******：向上递交给应用层数据：WWWWWWWWWWWWWWWWWWWW
 接收方发送确认报文: seqnum = -1, acknum = 2, checksum = 12849, ....................
-ERROR：接收方未收到正确报文：检验和错误: seqnum = 3, acknum = -1, checksum = 35978, YXXXXXXXXXXXXXXXXXXX
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 2, checksum = 12849, ....................
-计时器超时，下面重发第一个没被确认的包
-stop timer at seqnum 1
-start timer at seqnum 1
-重发报文: seqnum = 1, acknum = -1, checksum = 41120, VVVVVVVVVVVVVVVVVVVV
-ERROR：接收方未收到正确报文：报文序号错误: seqnum = 4, acknum = -1, checksum = 33407, YYYYYYYYYYYYYYYYYYYY
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 2, checksum = 12849, ....................
-ERROR：接收方未收到正确报文：报文序号错误: seqnum = 1, acknum = -1, checksum = 41120, VVVVVVVVVVVVVVVVVVVV
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 2, checksum = 12849, ....................
-计时器超时，下面重发第一个没被确认的包
-stop timer at seqnum 1
-start timer at seqnum 1
-重发报文: seqnum = 1, acknum = -1, checksum = 41120, VVVVVVVVVVVVVVVVVVVV
-连续1个冗余ACK
-发送方正确收到确认: seqnum = -1, acknum = 2, checksum = 12849, ....................
-stop timer at seqnum 1
-start timer at seqnum 3
-ERROR：接收方未收到正确报文：报文序号错误: seqnum = 1, acknum = -1, checksum = 41120, VVVVVVVVVVVVVVVVVVVV
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 2, checksum = 12849, ....................
-连续2个冗余ACK
-计时器超时，下面重发第一个没被确认的包
-stop timer at seqnum 3
-start timer at seqnum 3
-重发报文: seqnum = 3, acknum = -1, checksum = 35978, XXXXXXXXXXXXXXXXXXXX
 ******模拟网络环境******：向上递交给应用层数据：XXXXXXXXXXXXXXXXXXXX
 接收方发送确认报文: seqnum = -1, acknum = 3, checksum = 12848, ....................
-计时器超时，下面重发第一个没被确认的包
-stop timer at seqnum 3
+发送方正确收到确认: seqnum = -1, acknum = 2, checksum = 12849, ....................
+stop timer at seqnum 2
 start timer at seqnum 3
-重发报文: seqnum = 3, acknum = -1, checksum = 35978, XXXXXXXXXXXXXXXXXXXX
-ERROR：接收方未收到正确报文：报文序号错误: seqnum = 3, acknum = -1, checksum = 35978, XXXXXXXXXXXXXXXXXXXX
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 3, checksum = 12848, ....................
-计时器超时，下面重发第一个没被确认的包
-stop timer at seqnum 3
-start timer at seqnum 3
-重发报文: seqnum = 3, acknum = -1, checksum = 35978, XXXXXXXXXXXXXXXXXXXX
-连续1个冗余ACK
+window now: 
+------------------------------------
+ | 3 | 4 | 
+------------------------------------
+******模拟网络环境******：向上递交给应用层数据：YYYYYYYYYYYYYYYYYYYY
+接收方发送确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
 发送方正确收到确认: seqnum = -1, acknum = 3, checksum = 12848, ....................
 stop timer at seqnum 3
 start timer at seqnum 4
-ERROR：接收方未收到正确报文：报文序号错误: seqnum = 3, acknum = -1, checksum = 35978, XXXXXXXXXXXXXXXXXXXX
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 3, checksum = 12848, ....................
-连续2个冗余ACK
-计时器超时，下面重发第一个没被确认的包
-stop timer at seqnum 4
-start timer at seqnum 4
-重发报文: seqnum = 4, acknum = -1, checksum = 33407, YYYYYYYYYYYYYYYYYYYY
-******模拟网络环境******：向上递交给应用层数据：YYYYYYYYYYYYYYYYYYYY
-接收方发送确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
-计时器超时，下面重发第一个没被确认的包
-stop timer at seqnum 4
-start timer at seqnum 4
-重发报文: seqnum = 4, acknum = -1, checksum = 33407, YYYYYYYYYYYYYYYYYYYY
-ERROR：接收方未收到正确报文：报文序号错误: seqnum = 4, acknum = -1, checksum = 33407, YYYYYYYYYYYYYYYYYYYY
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
-连续1个冗余ACK
+window now: 
+------------------------------------
+ | 4 | 
+------------------------------------
 发送方正确收到确认: seqnum = -1, acknum = 4, checksum = 12847, ....................
 stop timer at seqnum 4
+window now: 
+------------------------------------
+ | 
+------------------------------------
 发送方发送报文: seqnum = 5, acknum = -1, checksum = 30836, ZZZZZZZZZZZZZZZZZZZZ
 start timer at seqnum 5
+window now: 
+------------------------------------
+ | 5 | 
+------------------------------------
 发送方发送报文: seqnum = 6, acknum = -1, checksum = 29550, AAAAAAAAAAAAAAAAAAAA
+window now: 
+------------------------------------
+ | 5 | 6 | 
+------------------------------------
 发送方发送报文: seqnum = 7, acknum = -1, checksum = 26979, BBBBBBBBBBBBBBBBBBBB
+window now: 
+------------------------------------
+ | 5 | 6 | 7 | 
+------------------------------------
 发送方发送报文: seqnum = 0, acknum = -1, checksum = 24416, CCCCCCCCCCCCCCCCCCCC
 the window is full!
+window now: 
+------------------------------------
+ | 5 | 6 | 7 | 0 | 
+------------------------------------
 ******模拟网络环境******：向上递交给应用层数据：ZZZZZZZZZZZZZZZZZZZZ
 接收方发送确认报文: seqnum = -1, acknum = 5, checksum = 12846, ....................
 ******模拟网络环境******：向上递交给应用层数据：AAAAAAAAAAAAAAAAAAAA
 接收方发送确认报文: seqnum = -1, acknum = 6, checksum = 12845, ....................
-发送方正确收到确认: seqnum = -1, acknum = 5, checksum = 12846, ....................
+计时器超时，下面重发第一个没被确认的包
 stop timer at seqnum 5
-start timer at seqnum 6
+start timer at seqnum 5
+重发报文: seqnum = 5, acknum = -1, checksum = 30836, ZZZZZZZZZZZZZZZZZZZZ
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 0, acknum = -1, checksum = 24416, CCCCCCCCCCCCCCCCCCCC
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 6, checksum = 12845, ....................
+发送方正确收到确认: seqnum = -1, acknum = 6, checksum = 12845, ....................
+stop timer at seqnum 5
+start timer at seqnum 7
+window now: 
+------------------------------------
+ | 7 | 0 | 
+------------------------------------
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 5, acknum = -1, checksum = 30836, ZZZZZZZZZZZZZZZZZZZZ
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 6, checksum = 12845, ....................
+连续1个冗余ACK
+连续2个冗余ACK
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 7
+start timer at seqnum 7
+重发报文: seqnum = 7, acknum = -1, checksum = 26979, BBBBBBBBBBBBBBBBBBBB
 ******模拟网络环境******：向上递交给应用层数据：BBBBBBBBBBBBBBBBBBBB
 接收方发送确认报文: seqnum = -1, acknum = 7, checksum = 12844, ....................
-******模拟网络环境******：向上递交给应用层数据：CCCCCCCCCCCCCCCCCCCC
-接收方发送确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
-发送方正确收到确认: seqnum = -1, acknum = 6, checksum = 12845, ....................
-stop timer at seqnum 6
-start timer at seqnum 7
 发送方正确收到确认: seqnum = -1, acknum = 7, checksum = 12844, ....................
 stop timer at seqnum 7
 start timer at seqnum 0
+window now: 
+------------------------------------
+ | 0 | 
+------------------------------------
 计时器超时，下面重发第一个没被确认的包
 stop timer at seqnum 0
 start timer at seqnum 0
 重发报文: seqnum = 0, acknum = -1, checksum = 24416, CCCCCCCCCCCCCCCCCCCC
-计时器超时，下面重发第一个没被确认的包
-stop timer at seqnum 0
-start timer at seqnum 0
-重发报文: seqnum = 0, acknum = -1, checksum = 24416, CCCCCCCCCCCCCCCCCCCC
-ERROR：接收方未收到正确报文：报文序号错误: seqnum = 0, acknum = -1, checksum = 24416, DCCCCCCCCCCCCCCCCCCC
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
+******模拟网络环境******：向上递交给应用层数据：CCCCCCCCCCCCCCCCCCCC
+接收方发送确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
 发送方正确收到确认: seqnum = -1, acknum = 0, checksum = 12851, ....................
 stop timer at seqnum 0
+window now: 
+------------------------------------
+ | 
+------------------------------------
 发送方发送报文: seqnum = 1, acknum = -1, checksum = 21845, DDDDDDDDDDDDDDDDDDDD
 start timer at seqnum 1
+window now: 
+------------------------------------
+ | 1 | 
+------------------------------------
 发送方发送报文: seqnum = 2, acknum = -1, checksum = 19274, EEEEEEEEEEEEEEEEEEEE
+window now: 
+------------------------------------
+ | 1 | 2 | 
+------------------------------------
 发送方发送报文: seqnum = 3, acknum = -1, checksum = 16703, FFFFFFFFFFFFFFFFFFFF
+window now: 
+------------------------------------
+ | 1 | 2 | 3 | 
+------------------------------------
 发送方发送报文: seqnum = 4, acknum = -1, checksum = 14132, GGGGGGGGGGGGGGGGGGGG
 the window is full!
+window now: 
+------------------------------------
+ | 1 | 2 | 3 | 4 | 
+------------------------------------
 ******模拟网络环境******：向上递交给应用层数据：DDDDDDDDDDDDDDDDDDDD
 接收方发送确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
-******模拟网络环境******：向上递交给应用层数据：EEEEEEEEEEEEEEEEEEEE
-接收方发送确认报文: seqnum = -1, acknum = 2, checksum = 12849, ....................
 发送方正确收到确认: seqnum = -1, acknum = 1, checksum = 12850, ....................
 stop timer at seqnum 1
 start timer at seqnum 2
+window now: 
+------------------------------------
+ | 2 | 3 | 4 | 
+------------------------------------
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 3, acknum = -1, checksum = 16703, FFFFFFFFFFFFFFFFFFFF
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 4, acknum = -1, checksum = 14132, HGGGGGGGGGGGGGGGGGGG
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
+连续1个冗余ACK
+连续2个冗余ACK
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 2
+start timer at seqnum 2
+重发报文: seqnum = 2, acknum = -1, checksum = 19274, EEEEEEEEEEEEEEEEEEEE
+******模拟网络环境******：向上递交给应用层数据：EEEEEEEEEEEEEEEEEEEE
+接收方发送确认报文: seqnum = -1, acknum = 2, checksum = 12849, ....................
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 2
+start timer at seqnum 2
+重发报文: seqnum = 2, acknum = -1, checksum = 19274, EEEEEEEEEEEEEEEEEEEE
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 2, acknum = -1, checksum = 19274, EEEEEEEEEEEEEEEEEEEE
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 2, checksum = 12849, ....................
 发送方正确收到确认: seqnum = -1, acknum = 2, checksum = 12849, ....................
 stop timer at seqnum 2
 start timer at seqnum 3
-ERROR：接收方未收到正确报文：报文序号错误: seqnum = 4, acknum = -1, checksum = 14132, GGGGGGGGGGGGGGGGGGGG
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 2, checksum = 12849, ....................
-连续1个冗余ACK
-计时器超时，下面重发第一个没被确认的包
-stop timer at seqnum 3
-start timer at seqnum 3
-重发报文: seqnum = 3, acknum = -1, checksum = 16703, FFFFFFFFFFFFFFFFFFFF
-ERROR：接收方未收到正确报文：检验和错误: seqnum = 3, acknum = -1, checksum = 16703, GFFFFFFFFFFFFFFFFFFF
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 2, checksum = 12849, ....................
-连续2个冗余ACK
-计时器超时，下面重发第一个没被确认的包
-stop timer at seqnum 3
-start timer at seqnum 3
-重发报文: seqnum = 3, acknum = -1, checksum = 16703, FFFFFFFFFFFFFFFFFFFF
-计时器超时，下面重发第一个没被确认的包
-stop timer at seqnum 3
-start timer at seqnum 3
-重发报文: seqnum = 3, acknum = -1, checksum = 16703, FFFFFFFFFFFFFFFFFFFF
+window now: 
+------------------------------------
+ | 3 | 4 | 
+------------------------------------
 计时器超时，下面重发第一个没被确认的包
 stop timer at seqnum 3
 start timer at seqnum 3
@@ -747,6 +1616,10 @@ start timer at seqnum 3
 发送方正确收到确认: seqnum = -1, acknum = 3, checksum = 12848, ....................
 stop timer at seqnum 3
 start timer at seqnum 4
+window now: 
+------------------------------------
+ | 4 | 
+------------------------------------
 计时器超时，下面重发第一个没被确认的包
 stop timer at seqnum 4
 start timer at seqnum 4
@@ -755,65 +1628,52 @@ start timer at seqnum 4
 接收方发送确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
 发送方正确收到确认: seqnum = -1, acknum = 4, checksum = 12847, ....................
 stop timer at seqnum 4
+window now: 
+------------------------------------
+ | 
+------------------------------------
 发送方发送报文: seqnum = 5, acknum = -1, checksum = 11561, HHHHHHHHHHHHHHHHHHHH
 start timer at seqnum 5
+window now: 
+------------------------------------
+ | 5 | 
+------------------------------------
 发送方发送报文: seqnum = 6, acknum = -1, checksum = 8990, IIIIIIIIIIIIIIIIIIII
+window now: 
+------------------------------------
+ | 5 | 6 | 
+------------------------------------
 发送方发送报文: seqnum = 7, acknum = -1, checksum = 6419, JJJJJJJJJJJJJJJJJJJJ
+window now: 
+------------------------------------
+ | 5 | 6 | 7 | 
+------------------------------------
 发送方发送报文: seqnum = 0, acknum = -1, checksum = 3856, KKKKKKKKKKKKKKKKKKKK
 the window is full!
-ERROR：接收方未收到正确报文：报文序号错误: seqnum = -999999, acknum = -1, checksum = 11561, HHHHHHHHHHHHHHHHHHHH
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
-ERROR：接收方未收到正确报文：报文序号错误: seqnum = 6, acknum = -1, checksum = 8990, IIIIIIIIIIIIIIIIIIII
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
-ERROR：接收方未收到正确报文：报文序号错误: seqnum = 7, acknum = -1, checksum = 6419, JJJJJJJJJJJJJJJJJJJJ
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
-连续1个冗余ACK
-ERROR：接收方未收到正确报文：报文序号错误: seqnum = 0, acknum = -1, checksum = 3856, KKKKKKKKKKKKKKKKKKKK
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
-连续2个冗余ACK
-计时器超时，下面重发第一个没被确认的包
-stop timer at seqnum 5
-start timer at seqnum 5
-重发报文: seqnum = 5, acknum = -1, checksum = 11561, HHHHHHHHHHHHHHHHHHHH
-连续3个冗余ACK
-连续三个冗余ACK： 4 触发快速重传
-stop timer at seqnum 5
-start timer at seqnum 5
-重发报文: seqnum = 5, acknum = -1, checksum = 11561, HHHHHHHHHHHHHHHHHHHH
-ERROR：接收方未收到正确报文：检验和错误: seqnum = 5, acknum = -1, checksum = 11561, IHHHHHHHHHHHHHHHHHHH
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
+window now: 
+------------------------------------
+ | 5 | 6 | 7 | 0 | 
+------------------------------------
 ******模拟网络环境******：向上递交给应用层数据：HHHHHHHHHHHHHHHHHHHH
 接收方发送确认报文: seqnum = -1, acknum = 5, checksum = 12846, ....................
-连续1个冗余ACK
-连续2个冗余ACK
+******模拟网络环境******：向上递交给应用层数据：IIIIIIIIIIIIIIIIIIII
+接收方发送确认报文: seqnum = -1, acknum = 6, checksum = 12845, ....................
 计时器超时，下面重发第一个没被确认的包
 stop timer at seqnum 5
 start timer at seqnum 5
 重发报文: seqnum = 5, acknum = -1, checksum = 11561, HHHHHHHHHHHHHHHHHHHH
-发送方正确收到确认: seqnum = -1, acknum = 5, checksum = 12846, ....................
-stop timer at seqnum 5
-start timer at seqnum 6
-ERROR：接收方未收到正确报文：报文序号错误: seqnum = 5, acknum = -1, checksum = 11561, HHHHHHHHHHHHHHHHHHHH
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 5, checksum = 12846, ....................
-连续1个冗余ACK
-计时器超时，下面重发第一个没被确认的包
-stop timer at seqnum 6
-start timer at seqnum 6
-重发报文: seqnum = 6, acknum = -1, checksum = 8990, IIIIIIIIIIIIIIIIIIII
-******模拟网络环境******：向上递交给应用层数据：IIIIIIIIIIIIIIIIIIII
-接收方发送确认报文: seqnum = -1, acknum = 6, checksum = 12845, ....................
-发送方正确收到确认: seqnum = -1, acknum = 6, checksum = 12845, ....................
-stop timer at seqnum 6
-start timer at seqnum 7
-计时器超时，下面重发第一个没被确认的包
-stop timer at seqnum 7
-start timer at seqnum 7
-重发报文: seqnum = 7, acknum = -1, checksum = 6419, JJJJJJJJJJJJJJJJJJJJ
 ******模拟网络环境******：向上递交给应用层数据：JJJJJJJJJJJJJJJJJJJJ
 接收方发送确认报文: seqnum = -1, acknum = 7, checksum = 12844, ....................
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 5, acknum = -1, checksum = 11561, HHHHHHHHHHHHHHHHHHHH
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 7, checksum = 12844, ....................
 发送方正确收到确认: seqnum = -1, acknum = 7, checksum = 12844, ....................
-stop timer at seqnum 7
+stop timer at seqnum 5
 start timer at seqnum 0
+window now: 
+------------------------------------
+ | 0 | 
+------------------------------------
+连续1个冗余ACK
 计时器超时，下面重发第一个没被确认的包
 stop timer at seqnum 0
 start timer at seqnum 0
@@ -822,126 +1682,367 @@ start timer at seqnum 0
 接收方发送确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
 发送方正确收到确认: seqnum = -1, acknum = 0, checksum = 12851, ....................
 stop timer at seqnum 0
+window now: 
+------------------------------------
+ | 
+------------------------------------
 发送方发送报文: seqnum = 1, acknum = -1, checksum = 1285, LLLLLLLLLLLLLLLLLLLL
 start timer at seqnum 1
+window now: 
+------------------------------------
+ | 1 | 
+------------------------------------
 发送方发送报文: seqnum = 2, acknum = -1, checksum = 64249, MMMMMMMMMMMMMMMMMMMM
+window now: 
+------------------------------------
+ | 1 | 2 | 
+------------------------------------
 发送方发送报文: seqnum = 3, acknum = -1, checksum = 61678, NNNNNNNNNNNNNNNNNNNN
+window now: 
+------------------------------------
+ | 1 | 2 | 3 | 
+------------------------------------
 发送方发送报文: seqnum = 4, acknum = -1, checksum = 59107, OOOOOOOOOOOOOOOOOOOO
 the window is full!
+window now: 
+------------------------------------
+ | 1 | 2 | 3 | 4 | 
+------------------------------------
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 2, acknum = -1, checksum = 64249, MMMMMMMMMMMMMMMMMMMM
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 3, acknum = -1, checksum = 61678, NNNNNNNNNNNNNNNNNNNN
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
+连续1个冗余ACK
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 4, acknum = -1, checksum = 59107, OOOOOOOOOOOOOOOOOOOO
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
+连续2个冗余ACK
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 1
+start timer at seqnum 1
+重发报文: seqnum = 1, acknum = -1, checksum = 1285, LLLLLLLLLLLLLLLLLLLL
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = -999999, acknum = -1, checksum = 1285, LLLLLLLLLLLLLLLLLLLL
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
+连续3个冗余ACK
+连续三个冗余ACK： 0 触发快速重传
+stop timer at seqnum 1
+start timer at seqnum 1
+重发报文: seqnum = 1, acknum = -1, checksum = 1285, LLLLLLLLLLLLLLLLLLLL
 ******模拟网络环境******：向上递交给应用层数据：LLLLLLLLLLLLLLLLLLLL
 接收方发送确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
 发送方正确收到确认: seqnum = -1, acknum = 1, checksum = 12850, ....................
 stop timer at seqnum 1
 start timer at seqnum 2
+window now: 
+------------------------------------
+ | 2 | 3 | 4 | 
+------------------------------------
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 2
+start timer at seqnum 2
+重发报文: seqnum = 2, acknum = -1, checksum = 64249, MMMMMMMMMMMMMMMMMMMM
 ******模拟网络环境******：向上递交给应用层数据：MMMMMMMMMMMMMMMMMMMM
 接收方发送确认报文: seqnum = -1, acknum = 2, checksum = 12849, ....................
-******模拟网络环境******：向上递交给应用层数据：NNNNNNNNNNNNNNNNNNNN
-接收方发送确认报文: seqnum = -1, acknum = 3, checksum = 12848, ....................
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 2
+start timer at seqnum 2
+重发报文: seqnum = 2, acknum = -1, checksum = 64249, MMMMMMMMMMMMMMMMMMMM
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 2, acknum = -1, checksum = 64249, MMMMMMMMMMMMMMMMMMMM
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 2, checksum = 12849, ....................
 发送方正确收到确认: seqnum = -1, acknum = 2, checksum = 12849, ....................
 stop timer at seqnum 2
 start timer at seqnum 3
-******模拟网络环境******：向上递交给应用层数据：OOOOOOOOOOOOOOOOOOOO
-接收方发送确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
+window now: 
+------------------------------------
+ | 3 | 4 | 
+------------------------------------
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 3
+start timer at seqnum 3
+重发报文: seqnum = 3, acknum = -1, checksum = 61678, NNNNNNNNNNNNNNNNNNNN
+******模拟网络环境******：向上递交给应用层数据：NNNNNNNNNNNNNNNNNNNN
+接收方发送确认报文: seqnum = -1, acknum = 3, checksum = 12848, ....................
 发送方正确收到确认: seqnum = -1, acknum = 3, checksum = 12848, ....................
 stop timer at seqnum 3
 start timer at seqnum 4
+window now: 
+------------------------------------
+ | 4 | 
+------------------------------------
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 4
+start timer at seqnum 4
+重发报文: seqnum = 4, acknum = -1, checksum = 59107, OOOOOOOOOOOOOOOOOOOO
+******模拟网络环境******：向上递交给应用层数据：OOOOOOOOOOOOOOOOOOOO
+接收方发送确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
 发送方正确收到确认: seqnum = -1, acknum = 4, checksum = 12847, ....................
 stop timer at seqnum 4
+window now: 
+------------------------------------
+ | 
+------------------------------------
 发送方发送报文: seqnum = 5, acknum = -1, checksum = 56536, PPPPPPPPPPPPPPPPPPPP
 start timer at seqnum 5
+window now: 
+------------------------------------
+ | 5 | 
+------------------------------------
 发送方发送报文: seqnum = 6, acknum = -1, checksum = 53965, QQQQQQQQQQQQQQQQQQQQ
+window now: 
+------------------------------------
+ | 5 | 6 | 
+------------------------------------
 发送方发送报文: seqnum = 7, acknum = -1, checksum = 51394, RRRRRRRRRRRRRRRRRRRR
+window now: 
+------------------------------------
+ | 5 | 6 | 7 | 
+------------------------------------
 发送方发送报文: seqnum = 0, acknum = -1, checksum = 48831, SSSSSSSSSSSSSSSSSSSS
 the window is full!
+window now: 
+------------------------------------
+ | 5 | 6 | 7 | 0 | 
+------------------------------------
 ******模拟网络环境******：向上递交给应用层数据：PPPPPPPPPPPPPPPPPPPP
 接收方发送确认报文: seqnum = -1, acknum = 5, checksum = 12846, ....................
 发送方正确收到确认: seqnum = -1, acknum = 5, checksum = 12846, ....................
 stop timer at seqnum 5
 start timer at seqnum 6
+window now: 
+------------------------------------
+ | 6 | 7 | 0 | 
+------------------------------------
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 0, acknum = -1, checksum = 48831, SSSSSSSSSSSSSSSSSSSS
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 5, checksum = 12846, ....................
+连续1个冗余ACK
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 6
+start timer at seqnum 6
+重发报文: seqnum = 6, acknum = -1, checksum = 53965, QQQQQQQQQQQQQQQQQQQQ
 ******模拟网络环境******：向上递交给应用层数据：QQQQQQQQQQQQQQQQQQQQ
 接收方发送确认报文: seqnum = -1, acknum = 6, checksum = 12845, ....................
 发送方正确收到确认: seqnum = -1, acknum = 6, checksum = 12845, ....................
 stop timer at seqnum 6
 start timer at seqnum 7
+window now: 
+------------------------------------
+ | 7 | 0 | 
+------------------------------------
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 7
+start timer at seqnum 7
+重发报文: seqnum = 7, acknum = -1, checksum = 51394, RRRRRRRRRRRRRRRRRRRR
 ******模拟网络环境******：向上递交给应用层数据：RRRRRRRRRRRRRRRRRRRR
 接收方发送确认报文: seqnum = -1, acknum = 7, checksum = 12844, ....................
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 7
+start timer at seqnum 7
+重发报文: seqnum = 7, acknum = -1, checksum = 51394, RRRRRRRRRRRRRRRRRRRR
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 7, acknum = -1, checksum = 51394, RRRRRRRRRRRRRRRRRRRR
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 7, checksum = 12844, ....................
 发送方正确收到确认: seqnum = -1, acknum = 7, checksum = 12844, ....................
 stop timer at seqnum 7
 start timer at seqnum 0
+window now: 
+------------------------------------
+ | 0 | 
+------------------------------------
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 0
+start timer at seqnum 0
+重发报文: seqnum = 0, acknum = -1, checksum = 48831, SSSSSSSSSSSSSSSSSSSS
+ERROR：接收方未收到正确报文：检验和错误: seqnum = 0, acknum = -1, checksum = 48831, TSSSSSSSSSSSSSSSSSSS
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 7, checksum = 12844, ....................
+连续1个冗余ACK
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 0
+start timer at seqnum 0
+重发报文: seqnum = 0, acknum = -1, checksum = 48831, SSSSSSSSSSSSSSSSSSSS
 ******模拟网络环境******：向上递交给应用层数据：SSSSSSSSSSSSSSSSSSSS
 接收方发送确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
 发送方正确收到确认: seqnum = -1, acknum = 0, checksum = 12851, ....................
 stop timer at seqnum 0
+window now: 
+------------------------------------
+ | 
+------------------------------------
 发送方发送报文: seqnum = 1, acknum = -1, checksum = 46260, TTTTTTTTTTTTTTTTTTTT
 start timer at seqnum 1
+window now: 
+------------------------------------
+ | 1 | 
+------------------------------------
 发送方发送报文: seqnum = 2, acknum = -1, checksum = 43689, UUUUUUUUUUUUUUUUUUUU
+window now: 
+------------------------------------
+ | 1 | 2 | 
+------------------------------------
 发送方发送报文: seqnum = 3, acknum = -1, checksum = 41118, VVVVVVVVVVVVVVVVVVVV
+window now: 
+------------------------------------
+ | 1 | 2 | 3 | 
+------------------------------------
 发送方发送报文: seqnum = 4, acknum = -1, checksum = 38547, WWWWWWWWWWWWWWWWWWWW
 the window is full!
+window now: 
+------------------------------------
+ | 1 | 2 | 3 | 4 | 
+------------------------------------
 ******模拟网络环境******：向上递交给应用层数据：TTTTTTTTTTTTTTTTTTTT
 接收方发送确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
-******模拟网络环境******：向上递交给应用层数据：UUUUUUUUUUUUUUUUUUUU
-接收方发送确认报文: seqnum = -1, acknum = 2, checksum = 12849, ....................
+ERROR：接收方未收到正确报文：检验和错误: seqnum = 2, acknum = -1, checksum = 43689, VUUUUUUUUUUUUUUUUUUU
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
 发送方正确收到确认: seqnum = -1, acknum = 1, checksum = 12850, ....................
 stop timer at seqnum 1
 start timer at seqnum 2
+window now: 
+------------------------------------
+ | 2 | 3 | 4 | 
+------------------------------------
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 3, acknum = -1, checksum = 41118, VVVVVVVVVVVVVVVVVVVV
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
+连续1个冗余ACK
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 4, acknum = -1, checksum = 38547, WWWWWWWWWWWWWWWWWWWW
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 1, checksum = 12850, ....................
+连续2个冗余ACK
+连续3个冗余ACK
+连续三个冗余ACK： 1 触发快速重传
+stop timer at seqnum 2
+start timer at seqnum 2
+重发报文: seqnum = 2, acknum = -1, checksum = 43689, UUUUUUUUUUUUUUUUUUUU
+******模拟网络环境******：向上递交给应用层数据：UUUUUUUUUUUUUUUUUUUU
+接收方发送确认报文: seqnum = -1, acknum = 2, checksum = 12849, ....................
+发送方正确收到确认: seqnum = -1, acknum = 2, checksum = 12849, ....................
+stop timer at seqnum 2
+start timer at seqnum 3
+window now: 
+------------------------------------
+ | 3 | 4 | 
+------------------------------------
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 3
+start timer at seqnum 3
+重发报文: seqnum = 3, acknum = -1, checksum = 41118, VVVVVVVVVVVVVVVVVVVV
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = -999999, acknum = -1, checksum = 41118, VVVVVVVVVVVVVVVVVVVV
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 2, checksum = 12849, ....................
+连续1个冗余ACK
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 3
+start timer at seqnum 3
+重发报文: seqnum = 3, acknum = -1, checksum = 41118, VVVVVVVVVVVVVVVVVVVV
 ******模拟网络环境******：向上递交给应用层数据：VVVVVVVVVVVVVVVVVVVV
 接收方发送确认报文: seqnum = -1, acknum = 3, checksum = 12848, ....................
 发送方正确收到确认: seqnum = -1, acknum = 3, checksum = 12848, ....................
-stop timer at seqnum 2
+stop timer at seqnum 3
 start timer at seqnum 4
+window now: 
+------------------------------------
+ | 4 | 
+------------------------------------
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 4
+start timer at seqnum 4
+重发报文: seqnum = 4, acknum = -1, checksum = 38547, WWWWWWWWWWWWWWWWWWWW
 ******模拟网络环境******：向上递交给应用层数据：WWWWWWWWWWWWWWWWWWWW
 接收方发送确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
-计时器超时，下面重发第一个没被确认的包
-stop timer at seqnum 4
-start timer at seqnum 4
-重发报文: seqnum = 4, acknum = -1, checksum = 38547, WWWWWWWWWWWWWWWWWWWW
-ERROR：接收方未收到正确报文：报文序号错误: seqnum = 4, acknum = -1, checksum = 38547, WWWWWWWWWWWWWWWWWWWW
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
-连续1个冗余ACK
-计时器超时，下面重发第一个没被确认的包
-stop timer at seqnum 4
-start timer at seqnum 4
-重发报文: seqnum = 4, acknum = -1, checksum = 38547, WWWWWWWWWWWWWWWWWWWW
-ERROR：接收方未收到正确报文：报文序号错误: seqnum = 4, acknum = -1, checksum = 38547, WWWWWWWWWWWWWWWWWWWW
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
-计时器超时，下面重发第一个没被确认的包
-stop timer at seqnum 4
-start timer at seqnum 4
-重发报文: seqnum = 4, acknum = -1, checksum = 38547, WWWWWWWWWWWWWWWWWWWW
-ERROR：接收方未收到正确报文：报文序号错误: seqnum = 4, acknum = -1, checksum = 38547, WWWWWWWWWWWWWWWWWWWW
-接受方重新发送上次的确认报文: seqnum = -1, acknum = 4, checksum = 12847, ....................
-连续2个冗余ACK
 发送方正确收到确认: seqnum = -1, acknum = 4, checksum = 12847, ....................
 stop timer at seqnum 4
+window now: 
+------------------------------------
+ | 
+------------------------------------
 发送方发送报文: seqnum = 5, acknum = -1, checksum = 35976, XXXXXXXXXXXXXXXXXXXX
 start timer at seqnum 5
+window now: 
+------------------------------------
+ | 5 | 
+------------------------------------
 发送方发送报文: seqnum = 6, acknum = -1, checksum = 33405, YYYYYYYYYYYYYYYYYYYY
+window now: 
+------------------------------------
+ | 5 | 6 | 
+------------------------------------
 发送方发送报文: seqnum = 7, acknum = -1, checksum = 30834, ZZZZZZZZZZZZZZZZZZZZ
+window now: 
+------------------------------------
+ | 5 | 6 | 7 | 
+------------------------------------
 发送方发送报文: seqnum = 0, acknum = -1, checksum = 29873, EOF                 
 the window is full!
+window now: 
+------------------------------------
+ | 5 | 6 | 7 | 0 | 
+------------------------------------
 ******模拟网络环境******：向上递交给应用层数据：XXXXXXXXXXXXXXXXXXXX
 接收方发送确认报文: seqnum = -1, acknum = 5, checksum = 12846, ....................
+******模拟网络环境******：向上递交给应用层数据：YYYYYYYYYYYYYYYYYYYY
+接收方发送确认报文: seqnum = -1, acknum = 6, checksum = 12845, ....................
 发送方正确收到确认: seqnum = -1, acknum = 5, checksum = 12846, ....................
 stop timer at seqnum 5
 start timer at seqnum 6
-******模拟网络环境******：向上递交给应用层数据：YYYYYYYYYYYYYYYYYYYY
-接收方发送确认报文: seqnum = -1, acknum = 6, checksum = 12845, ....................
-******模拟网络环境******：向上递交给应用层数据：ZZZZZZZZZZZZZZZZZZZZ
-接收方发送确认报文: seqnum = -1, acknum = 7, checksum = 12844, ....................
+window now: 
+------------------------------------
+ | 6 | 7 | 0 | 
+------------------------------------
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 0, acknum = -1, checksum = 29873, FOF                 
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 6, checksum = 12845, ....................
 发送方正确收到确认: seqnum = -1, acknum = 6, checksum = 12845, ....................
 stop timer at seqnum 6
 start timer at seqnum 7
+window now: 
+------------------------------------
+ | 7 | 0 | 
+------------------------------------
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 7
+start timer at seqnum 7
+重发报文: seqnum = 7, acknum = -1, checksum = 30834, ZZZZZZZZZZZZZZZZZZZZ
+******模拟网络环境******：向上递交给应用层数据：ZZZZZZZZZZZZZZZZZZZZ
+接收方发送确认报文: seqnum = -1, acknum = 7, checksum = 12844, ....................
+发送方正确收到确认: seqnum = -1, acknum = 7, checksum = 12844, ....................
+stop timer at seqnum 7
+start timer at seqnum 0
+window now: 
+------------------------------------
+ | 0 | 
+------------------------------------
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 0
+start timer at seqnum 0
+重发报文: seqnum = 0, acknum = -1, checksum = 29873, EOF                 
 ******模拟网络环境******：向上递交给应用层数据：EOF                  
 接收方发送确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 0
+start timer at seqnum 0
+重发报文: seqnum = 0, acknum = -1, checksum = 29873, EOF                 
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 0, acknum = -1, checksum = 29873, EOF                 
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 0
+start timer at seqnum 0
+重发报文: seqnum = 0, acknum = -1, checksum = 29873, EOF                 
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 0, acknum = -1, checksum = 29873, EOF                 
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
+连续1个冗余ACK
+计时器超时，下面重发第一个没被确认的包
+stop timer at seqnum 0
+start timer at seqnum 0
+重发报文: seqnum = 0, acknum = -1, checksum = 29873, EOF                 
+ERROR：接收方未收到正确报文：报文序号错误: seqnum = 0, acknum = -1, checksum = 29873, EOF                 
+接受方重新发送上次的确认报文: seqnum = -1, acknum = 0, checksum = 12851, ....................
+连续2个冗余ACK
 发送方正确收到确认: seqnum = -1, acknum = 0, checksum = 12851, ....................
-stop timer at seqnum 7
+stop timer at seqnum 0
+window now: 
+------------------------------------
+ | 
+------------------------------------
 ******模拟网络环境******：模拟网络环境已发送完应用层数据，关闭模拟网络环境
 已发送应用层Message个数: 105
-发送到网络层数据Packet个数: 156
-网络层丢失的数据Packet个数: 10
-网络层损坏的数据pakcet个数:10
-发送到网络层确认Packet个数:146
-网络层丢失的确认Packet个数: 18
-网络层损坏的确认Packet个数: 13
+发送到网络层数据Packet个数: 199
+网络层丢失的数据Packet个数: 21
+网络层损坏的数据pakcet个数:21
+发送到网络层确认Packet个数:178
+网络层丢失的确认Packet个数: 22
+网络层损坏的确认Packet个数: 19
 

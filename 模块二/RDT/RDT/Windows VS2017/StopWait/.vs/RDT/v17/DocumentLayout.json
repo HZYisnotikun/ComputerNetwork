@@ -3,13 +3,23 @@
   "WorkspaceRootPath": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\StopWait\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7F45DE68-E5E9-48D2-8AE2-93EB30701EC0}|..\\TCP\\TCP.vcxproj|D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\TCP\\TCPRdtSender.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F45DE68-E5E9-48D2-8AE2-93EB30701EC0}|..\\TCP\\TCP.vcxproj|D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\TCP\\TCP.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E78CF369-1B23-479E-AA05-4CDAFB24C253}|..\\SR\\SR.vcxproj|D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\SR\\SR.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9E23A03-9974-40AE-9555-138B5F2FEDA4}|StopWait.vcxproj|D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\StopWait\\GBN.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B9E23A03-9974-40AE-9555-138B5F2FEDA4}|StopWait.vcxproj|solutionrelative:GBN.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E78CF369-1B23-479E-AA05-4CDAFB24C253}|..\\SR\\SR.vcxproj|D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\SR\\SRRdtSender.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E78CF369-1B23-479E-AA05-4CDAFB24C253}|..\\SR\\SR.vcxproj|D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\SR\\SRRdtSender.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F45DE68-E5E9-48D2-8AE2-93EB30701EC0}|..\\TCP\\TCP.vcxproj|D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\TCP\\TCPRdtSender.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7F45DE68-E5E9-48D2-8AE2-93EB30701EC0}|..\\TCP\\TCP.vcxproj|D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\TCP\\TCPRdtSender.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
@@ -17,9 +27,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{B9E23A03-9974-40AE-9555-138B5F2FEDA4}|StopWait.vcxproj|D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\StopWait\\GBNRdtSender.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{B9E23A03-9974-40AE-9555-138B5F2FEDA4}|StopWait.vcxproj|solutionrelative:GBNRdtSender.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F45DE68-E5E9-48D2-8AE2-93EB30701EC0}|..\\TCP\\TCP.vcxproj|D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\TCP\\tcp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7F45DE68-E5E9-48D2-8AE2-93EB30701EC0}|..\\TCP\\TCP.vcxproj|D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\TCP\\TCPRdtReceiver.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
@@ -31,13 +38,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{B9E23A03-9974-40AE-9555-138B5F2FEDA4}|StopWait.vcxproj|D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\StopWait\\GBNRdtSender.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{B9E23A03-9974-40AE-9555-138B5F2FEDA4}|StopWait.vcxproj|solutionrelative:GBNRdtSender.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B9E23A03-9974-40AE-9555-138B5F2FEDA4}|StopWait.vcxproj|D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\StopWait\\GBN.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B9E23A03-9974-40AE-9555-138B5F2FEDA4}|StopWait.vcxproj|solutionrelative:GBN.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E78CF369-1B23-479E-AA05-4CDAFB24C253}|..\\SR\\SR.vcxproj|D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\SR\\SR.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7F45DE68-E5E9-48D2-8AE2-93EB30701EC0}|..\\TCP\\TCP.vcxproj|D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\TCP\\DataStructure.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
@@ -70,7 +70,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -82,33 +82,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "TCP.cpp",
-              "DocumentMoniker": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\TCP\\TCP.cpp",
-              "RelativeDocumentMoniker": "..\\TCP\\TCP.cpp",
-              "ToolTip": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\TCP\\TCP.cpp",
-              "RelativeToolTip": "..\\TCP\\TCP.cpp",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABUAAABLAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-28T15:16:15.679Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "GBNRdtSender.cpp",
-              "DocumentMoniker": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\StopWait\\GBNRdtSender.cpp",
-              "RelativeDocumentMoniker": "GBNRdtSender.cpp",
-              "ToolTip": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\StopWait\\GBNRdtSender.cpp",
-              "RelativeToolTip": "GBNRdtSender.cpp",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-21T02:38:24.526Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "TCPRdtReceiver.cpp",
               "DocumentMoniker": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\TCP\\TCPRdtReceiver.cpp",
               "RelativeDocumentMoniker": "..\\TCP\\TCPRdtReceiver.cpp",
@@ -116,12 +90,11 @@
               "RelativeToolTip": "..\\TCP\\TCPRdtReceiver.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-28T15:16:45.645Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-28T15:16:45.645Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "TCPRdtSender.h",
               "DocumentMoniker": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\TCP\\TCPRdtSender.h",
               "RelativeDocumentMoniker": "..\\TCP\\TCPRdtSender.h",
@@ -129,38 +102,36 @@
               "RelativeToolTip": "..\\TCP\\TCPRdtSender.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-28T15:17:09.494Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-28T15:17:09.494Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "TCPRdtSender.cpp",
               "DocumentMoniker": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\TCP\\TCPRdtSender.cpp",
               "RelativeDocumentMoniker": "..\\TCP\\TCPRdtSender.cpp",
               "ToolTip": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\TCP\\TCPRdtSender.cpp",
               "RelativeToolTip": "..\\TCP\\TCPRdtSender.cpp",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAAAFwAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAAAHQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-28T15:16:31.125Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "SRRdtSender.cpp",
               "DocumentMoniker": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\SR\\SRRdtSender.cpp",
               "RelativeDocumentMoniker": "..\\SR\\SRRdtSender.cpp",
               "ToolTip": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\SR\\SRRdtSender.cpp",
               "RelativeToolTip": "..\\SR\\SRRdtSender.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-26T12:00:00.71Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-26T12:00:00.71Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "SRRdtSender.h",
               "DocumentMoniker": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\SR\\SRRdtSender.h",
               "RelativeDocumentMoniker": "..\\SR\\SRRdtSender.h",
@@ -168,51 +139,24 @@
               "RelativeToolTip": "..\\SR\\SRRdtSender.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-26T11:33:57.969Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-26T11:33:57.969Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "GBNRdtReceiver.cpp",
-              "DocumentMoniker": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\StopWait\\GBNRdtReceiver.cpp",
-              "RelativeDocumentMoniker": "GBNRdtReceiver.cpp",
-              "ToolTip": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\StopWait\\GBNRdtReceiver.cpp",
-              "RelativeToolTip": "GBNRdtReceiver.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-21T11:21:16.981Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "GBNRdtSender.h",
-              "DocumentMoniker": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\StopWait\\GBNRdtSender.h",
-              "RelativeDocumentMoniker": "GBNRdtSender.h",
-              "ToolTip": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\StopWait\\GBNRdtSender.h",
-              "RelativeToolTip": "GBNRdtSender.h",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-21T02:37:52.387Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 3,
               "Title": "GBN.cpp",
               "DocumentMoniker": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\StopWait\\GBN.cpp",
               "RelativeDocumentMoniker": "GBN.cpp",
               "ToolTip": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\StopWait\\GBN.cpp",
               "RelativeToolTip": "GBN.cpp",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-21T03:25:08.469Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 2,
               "Title": "SR.cpp",
               "DocumentMoniker": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\SR\\SR.cpp",
               "RelativeDocumentMoniker": "..\\SR\\SR.cpp",
@@ -225,6 +169,55 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TCP.cpp",
+              "DocumentMoniker": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\TCP\\TCP.cpp",
+              "RelativeDocumentMoniker": "..\\TCP\\TCP.cpp",
+              "ToolTip": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\TCP\\TCP.cpp",
+              "RelativeToolTip": "..\\TCP\\TCP.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-28T15:16:15.679Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "GBNRdtSender.cpp",
+              "DocumentMoniker": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\StopWait\\GBNRdtSender.cpp",
+              "RelativeDocumentMoniker": "GBNRdtSender.cpp",
+              "ToolTip": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\StopWait\\GBNRdtSender.cpp",
+              "RelativeToolTip": "GBNRdtSender.cpp",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-21T02:38:24.526Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "GBNRdtReceiver.cpp",
+              "DocumentMoniker": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\StopWait\\GBNRdtReceiver.cpp",
+              "RelativeDocumentMoniker": "GBNRdtReceiver.cpp",
+              "ToolTip": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\StopWait\\GBNRdtReceiver.cpp",
+              "RelativeToolTip": "GBNRdtReceiver.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-21T11:21:16.981Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "GBNRdtSender.h",
+              "DocumentMoniker": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\StopWait\\GBNRdtSender.h",
+              "RelativeDocumentMoniker": "GBNRdtSender.h",
+              "ToolTip": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\StopWait\\GBNRdtSender.h",
+              "RelativeToolTip": "GBNRdtSender.h",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-21T02:37:52.387Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 11,
               "Title": "DataStructure.h",
               "DocumentMoniker": "D:\\\u8BA1\u7F51\u5B9E\u9A8C\\\u6A21\u5757\u4E8C\\RDT\\RDT\\Windows VS2017\\TCP\\DataStructure.h",
@@ -233,8 +226,7 @@
               "RelativeToolTip": "..\\TCP\\DataStructure.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-29T06:52:54.692Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-29T06:52:54.692Z"
             },
             {
               "$type": "Document",
@@ -246,8 +238,7 @@
               "RelativeToolTip": "..\\TCP\\TCPRdtReceiver.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-28T15:17:26.144Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-28T15:17:26.144Z"
             },
             {
               "$type": "Document",
@@ -259,8 +250,7 @@
               "RelativeToolTip": "..\\SR\\SRRdtReceiver.cpp",
               "ViewState": "AgIAADkAAAAAAAAAAAAAAEUAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-26T13:33:29.19Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-26T13:33:29.19Z"
             },
             {
               "$type": "Document",
@@ -272,8 +262,7 @@
               "RelativeToolTip": "stdafx.cpp",
               "ViewState": "AgIAAAEAAAAAAAAAAAAAAAEAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-21T03:17:19.249Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-21T03:17:19.249Z"
             },
             {
               "$type": "Document",
@@ -285,8 +274,7 @@
               "RelativeToolTip": "RdtSender.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-29T03:21:36.342Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-29T03:21:36.342Z"
             },
             {
               "$type": "Document",
@@ -298,8 +286,7 @@
               "RelativeToolTip": "..\\SR\\RdtSender.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-26T12:04:51.056Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-26T12:04:51.056Z"
             },
             {
               "$type": "Document",
@@ -311,8 +298,7 @@
               "RelativeToolTip": "..\\SR\\SRRdtReceiver.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-26T13:35:31.402Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-26T13:35:31.402Z"
             }
           ]
         }

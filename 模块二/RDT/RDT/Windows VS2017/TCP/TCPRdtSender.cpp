@@ -104,10 +104,10 @@ bool TCPRdtSender::send(const Message& message) {
 
 void TCPRdtSender::timeoutHandler(int seqnum) {
 	//判断是不是快速重传
-	if (SameInRow == 3)
-		SameInRow = 0;
-	else
+	if (SameInRow != 3)
 		cout << "计时器超时，下面重发第一个没被确认的包" << endl;
+	SameInRow = 0;
+		
 	pns->stopTimer(SENDER, this->win[0].seqnum);  //首先关闭定时器
 	cout << "stop timer at seqnum " << win[0].seqnum << endl;
 	pns->startTimer(SENDER, Configuration::TIME_OUT, this->win[0].seqnum);			//重新启动发送方定时器
